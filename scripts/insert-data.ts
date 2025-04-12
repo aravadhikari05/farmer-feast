@@ -2,6 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
 // change to regular .env for production probably
 dotenv.config({path: '.env.local'});
+// dotenv.config();
 import fs from 'fs';
 import path from 'path';
 
