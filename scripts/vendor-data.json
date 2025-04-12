@@ -28,7 +28,8 @@
       "Apricots",
       "Dried Fruit",
       "Walnuts"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1113.jpg"
   },
   "Aptos Apiaries": {
     "link": "https://santacruzfarmersmarket.org/vendors/aptos-apiaries/",
@@ -46,7 +47,8 @@
     ],
     "products": [
       "Honey"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2013/03/Aptos-Apiary.jpg"
   },
   "Ashby Confections": {
     "link": "https://santacruzfarmersmarket.org/vendors/ashbey-confections/",
@@ -66,7 +68,8 @@
     "markets": [
       "Downtown Santa Cruz"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2015/04/AshbyConfections1.jpg"
   },
   "Beckmann’s Old World Bakery": {
     "link": "https://santacruzfarmersmarket.org/vendors/beckmanns-old-world-bakery/",
@@ -91,7 +94,8 @@
     ],
     "products": [
       "Bread"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/159.jpg"
   },
   "Big Paw Olive Oil": {
     "link": "https://santacruzfarmersmarket.org/vendors/big-paw-olive-oil/",
@@ -109,7 +113,8 @@
     ],
     "products": [
       "Olive Oil"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2018/11/Big-Paw.jpg"
   },
   "Billy Bob Orchard": {
     "link": "https://santacruzfarmersmarket.org/vendors/billy-bob-orchard/",
@@ -127,7 +132,8 @@
     ],
     "products": [
       "Apples"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/196.jpg"
   },
   "Blossoms Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/blossoms-farm/",
@@ -151,7 +157,8 @@
       "Salves",
       "Seeds",
       "tinctures"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2016/12/Blossom-Farm.jpeg"
   },
   "Blue Heron Farms": {
     "link": "https://santacruzfarmersmarket.org/vendors/blue-heron-farms/",
@@ -188,7 +195,8 @@
       "Summer Squash",
       "Swiss Chard",
       "Winter Squash"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Screen-Shot-2024-01-30-at-10.24.10-AM-e1706639766699.png"
   },
   "Blue House Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/blue-house-farm/",
@@ -219,7 +227,8 @@
       "Summer Squash",
       "Tomatoes",
       "Winter Squash"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2017/10/Website-Profile-Photo.jpg"
   },
   "Brokaw Nursery": {
     "link": "https://santacruzfarmersmarket.org/vendors/brokaw-nursery/",
@@ -254,7 +263,8 @@
       "Mangoes",
       "Oranges",
       "Pomelos"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/197.jpg"
   },
   "Casalegno Family Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/casalegno-family-farm/",
@@ -300,7 +310,8 @@
       "Summer Squash",
       "Tomatoes",
       "Winter Squash"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Casalegno-2.jpg"
   },
   "Cavanaugh Color": {
     "link": "https://santacruzfarmersmarket.org/vendors/cavanaugh-color/",
@@ -323,7 +334,8 @@
       "hanging basket plants",
       "potted arrangements",
       "shade plants"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/themes/bf_scfm/images/thumb_vendor440x250.jpg"
   },
   "Companion Bakers": {
     "link": "https://santacruzfarmersmarket.org/vendors/companion-bakers/",
@@ -346,7 +358,8 @@
       "Scotts Valley",
       "Westside Santa Cruz"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1167.jpg"
   },
   "Delicious Crepes": {
     "link": "https://santacruzfarmersmarket.org/vendors/delicious-crepes/",
@@ -365,7 +378,8 @@
       "Felton",
       "Live Oak/Eastside"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/DeliciousCrepes.jpg"
   },
   "Dirty Girl Produce": {
     "link": "https://santacruzfarmersmarket.org/vendors/dirty-girl-produce/",
@@ -412,7 +426,8 @@
       "Strawberries",
       "Tomatoes",
       "Turnips"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/DirtyGirl.jpg"
   },
   "Dos Hermanos Pupuseria": {
     "link": "https://santacruzfarmersmarket.org/vendors/dos-hermanos-pupuseria/",
@@ -434,7 +449,8 @@
       "Aguas Frescas",
       "Curtido",
       "Pupusas"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Dos-Hermanos-1.jpg"
   },
   "El Pajaro Valley CDC Incubator Kitchen": {
     "link": "https://santacruzfarmersmarket.org/vendors/pajaro-valley-cdc-incubator-kitchen/",
@@ -451,7 +467,8 @@
     "markets": [
       "Downtown Santa Cruz"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2018/01/El-Pajaro-CDC.jpg"
   },
   "Epicenter": {
     "link": "https://santacruzfarmersmarket.org/vendors/epicenter/",
@@ -467,7 +484,8 @@
     "products": [
       "Apples",
       "Pears"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Epicenter.jpg"
   },
   "Flowers at the Sea": {
     "link": "https://santacruzfarmersmarket.org/vendors/flowers-at-the-sea/",
@@ -490,7 +508,8 @@
     ],
     "products": [
       "Flowers"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Flowers-at-the-Sea.jpg"
   },
   "Flying Disc Ranch": {
     "link": "https://santacruzfarmersmarket.org/vendors/flying-disc-ranch/",
@@ -515,7 +534,8 @@
       "Dates",
       "Grapefruit",
       "Oranges"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/160.jpg"
   },
   "Fogline Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/fogline-farm/",
@@ -543,7 +563,8 @@
       "Eggs",
       "Pork",
       "Sausage"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Fogline-2016.jpg"
   },
   "Four Sisters Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/four-sister-farm/",
@@ -591,7 +612,8 @@
       "Sorrel",
       "Spinach",
       "Thyme"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1111.jpg"
   },
   "Fruition Brewing": {
     "link": "https://santacruzfarmersmarket.org/vendors/fruition-brewing/",
@@ -609,7 +631,8 @@
     ],
     "products": [
       "Beer"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/fruition.jpg"
   },
   "Full Steam Dumpling": {
     "link": "https://santacruzfarmersmarket.org/vendors/full-steam-dumpling/",
@@ -631,7 +654,8 @@
       "Gyoza",
       "Pancakes",
       "Ramen"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Full-Steam-Dumpling-hands.jpg"
   },
   "Garden Variety Cheese": {
     "link": "https://santacruzfarmersmarket.org/vendors/garden-variety-cheese/",
@@ -649,7 +673,8 @@
     ],
     "products": [
       "sheep cheese"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2013/02/12.jpg"
   },
   "Green Planet Organics": {
     "link": "https://santacruzfarmersmarket.org/vendors/green-planet-organics/",
@@ -670,7 +695,8 @@
     ],
     "products": [
       "Garden Starts"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/169.jpg"
   },
   "Groundswell Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/groundswell-farm/",
@@ -698,7 +724,8 @@
       "Squash",
       "Strawberries",
       "Tomatoes"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Groundswell.jpg"
   },
   "H & H Fresh Fish Co., Inc.": {
     "link": "https://santacruzfarmersmarket.org/vendors/h-h-fresh-fish-co-inc/",
@@ -721,7 +748,8 @@
       "Scotts Valley",
       "Westside Santa Cruz"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1165.jpg"
   },
   "Hakouya": {
     "link": "https://santacruzfarmersmarket.org/vendors/hakouya/",
@@ -744,7 +772,8 @@
       "Koji Soy Sauce",
       "Miso",
       "Quick Miso"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Hakouya.jpg"
   },
   "Happy Boy Farms": {
     "link": "https://santacruzfarmersmarket.org/vendors/happy-boy-farms/",
@@ -807,7 +836,8 @@
       "Watercress",
       "Watermelons",
       "Winter Squash"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Happy-Boy-Profile.jpg"
   },
   "Herman Ranches": {
     "link": "https://santacruzfarmersmarket.org/vendors/herman-ranches/",
@@ -825,7 +855,8 @@
     ],
     "products": [
       "Figs"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2017/10/Website-Profile-Photo-1.jpg"
   },
   "Hidden Fortress Coffee Roasting": {
     "link": "https://santacruzfarmersmarket.org/vendors/hidden-fortress-micro-farm/",
@@ -851,7 +882,8 @@
     "products": [
       "baked goods",
       "coffee"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2014/12/amelia_tasting450x220.jpg"
   },
   "Il Biscotto": {
     "link": "https://santacruzfarmersmarket.org/vendors/il-biscotto/",
@@ -874,7 +906,8 @@
       "Cannoli",
       "Italian Cookies",
       "Tiramisu"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/IMG_2302-2-e1709243528519.jpg"
   },
   "India Gourmet": {
     "link": "https://santacruzfarmersmarket.org/vendors/india-gourmet/",
@@ -894,7 +927,8 @@
       "Downtown Santa Cruz",
       "Felton"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/IndiaGourmet.jpg"
   },
   "JCG Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/jcg-farm/",
@@ -916,7 +950,8 @@
       "Scotts Valley",
       "Westside Santa Cruz"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2013/03/JCG-Profile.jpg"
   },
   "Kashiwase Farms": {
     "link": "https://santacruzfarmersmarket.org/vendors/kashiwase-farms/",
@@ -946,7 +981,8 @@
       "Peaches",
       "Plums",
       "Pluots"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1127.jpg"
   },
   "Ken’s Top Notch": {
     "link": "https://santacruzfarmersmarket.org/vendors/kens-top-notch/",
@@ -972,7 +1008,8 @@
       "Persimmons",
       "Plums",
       "Pluots"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2017/11/KENS-TOP-KNOTCH.jpg"
   },
   "La Vie Pure Food Collective": {
     "link": "https://santacruzfarmersmarket.org/vendors/la-vie-pure-food-collective/",
@@ -995,7 +1032,8 @@
       "Scotts Valley",
       "Westside Santa Cruz"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/lavie.jpg"
   },
   "Laurel Canyon Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/laurel-canyon-farm/",
@@ -1013,7 +1051,8 @@
     ],
     "products": [
       "Flowers"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Laurel-Canyon.jpg"
   },
   "Live Earth Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/live-earth-farm/",
@@ -1085,7 +1124,8 @@
       "Tomatoes",
       "Turnips",
       "Winter Squash"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/LIVE-EARTH-FARM-e1443216016321.jpg"
   },
   "Molino Creek Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/molino-creek-farm/",
@@ -1116,7 +1156,8 @@
       "Shallots",
       "Sunflowers",
       "Zucchini"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Molino-Creek-Profile.jpg"
   },
   "Mora Family Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/mello-dy-ranch/",
@@ -1155,7 +1196,8 @@
       "Sweet Peppers",
       "Tomatoes",
       "Winter Squash"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/IMG_1952-e1443215836512.jpg"
   },
   "NahNa": {
     "link": "https://santacruzfarmersmarket.org/vendors/red-sea/",
@@ -1170,7 +1212,8 @@
     "markets": [
       "Downtown Santa Cruz"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2013/12/TheRedSea.jpg"
   },
   "New Natives": {
     "link": "https://santacruzfarmersmarket.org/vendors/new-natives/",
@@ -1193,7 +1236,8 @@
       "Mushrooms",
       "Sprouted Beans",
       "Wheat Grass"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1184.jpg"
   },
   "Pacific Rare Plants": {
     "link": "https://santacruzfarmersmarket.org/vendors/pacific-rare-plants/",
@@ -1214,7 +1258,8 @@
       "Edibles Plants",
       "Medicinal Plants",
       "Native Plants"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2018/02/Pacific-Rare-Plants-Profile-Photo.jpg"
   },
   "Penny Ice Creamery": {
     "link": "https://santacruzfarmersmarket.org/vendors/penny-ice-creamery/",
@@ -1236,7 +1281,8 @@
     ],
     "products": [
       "Ice Cream"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2013/11/126.jpg"
   },
   "Pensi Pasta Co.": {
     "link": "https://santacruzfarmersmarket.org/vendors/pensi-pasta-co/",
@@ -1255,7 +1301,8 @@
     "markets": [
       "Live Oak/Eastside"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1114.jpg"
   },
   "Pinnacle Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/pinnacle-farm/",
@@ -1309,7 +1356,8 @@
       "Watermelons",
       "Winter Squash",
       "Zucchini"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1176.jpg"
   },
   "Prevedelli Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/prevedelli-farm/",
@@ -1337,7 +1385,8 @@
       "Persimmons",
       "Plums",
       "Winter Squash"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2013/02/Prevedelli.jpg"
   },
   "Rodoni Farms": {
     "link": "https://santacruzfarmersmarket.org/vendors/rodoni-farms/",
@@ -1368,7 +1417,8 @@
       "Snap Peas",
       "Snow Peas",
       "Squash"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Rodoni-e1443215633480.jpg"
   },
   "RoliRoti Gourmet Rotisserie": {
     "link": "https://santacruzfarmersmarket.org/vendors/rotisystems-inc-dba-roliroti/",
@@ -1389,7 +1439,8 @@
       "Downtown Santa Cruz",
       "Felton"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/179.jpg"
   },
   "Rooster Ridge Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/rooster-ridge-farm/",
@@ -1407,7 +1458,8 @@
     "markets": [
       "Live Oak/Eastside"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2017/09/roosterridge.jpeg"
   },
   "Santa Cruz Balsalmics": {
     "link": "https://santacruzfarmersmarket.org/vendors/santa-cruz-balsalmics/",
@@ -1424,7 +1476,8 @@
     ],
     "products": [
       "Balsamic Vinegar"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2023/11/SC-BALSAMICS.jpg"
   },
   "Santa Cruz Permaculture": {
     "link": "https://santacruzfarmersmarket.org/vendors/santa-cruz-permaculture/",
@@ -1447,7 +1500,8 @@
       "Hoshigaki",
       "Kiwi",
       "Preserves"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2025/02/Screen-Shot-2025-02-07-at-10.49.44-AM.png"
   },
   "Schletewitz Family Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/schletewitz-family-farm/",
@@ -1481,7 +1535,8 @@
       "Tangelos",
       "Tangerines",
       "Yams"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1134.jpg"
   },
   "Schoch Family Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/schoch-family-farm/",
@@ -1502,7 +1557,8 @@
     ],
     "products": [
       "Raw Milk"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2013/12/18.jpg"
   },
   "Sea to Sky Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/sea-to-sky-farm/",
@@ -1526,7 +1582,8 @@
       "Lettuce",
       "Squash",
       "Sweet Potatoes"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2020/02/Sea-to-Sky-Farm.jpg"
   },
   "Serendipity Farms": {
     "link": "https://santacruzfarmersmarket.org/vendors/serendipity-farms/",
@@ -1552,7 +1609,8 @@
       "Blueberries",
       "Herbs",
       "Kale"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2016/05/Serendipity-Farm.jpg"
   },
   "Stackhouse Brothers Orchards": {
     "link": "https://santacruzfarmersmarket.org/vendors/stackhouse-brothers-orchards/",
@@ -1580,7 +1638,8 @@
       "Flavored Almonds",
       "Persimmons",
       "Stone fruit"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/152.jpg"
   },
   "Sumano’s Organic Mushrooms": {
     "link": "https://santacruzfarmersmarket.org/vendors/sumanos-organic-mushrooms/",
@@ -1597,7 +1656,8 @@
     ],
     "products": [
       "Mushrooms"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/mushrooms.jpg"
   },
   "Switch Bakery": {
     "link": "https://santacruzfarmersmarket.org/vendors/switch-bakery/",
@@ -1615,7 +1675,8 @@
     "products": [
       "Gluten Free Baked Goods",
       "Gluten Free Bread"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2025/01/Screen-Shot-2025-01-30-at-11.32.05-AM.png"
   },
   "Tía Beré": {
     "link": "https://santacruzfarmersmarket.org/vendors/garcia-mexican-food/",
@@ -1635,7 +1696,8 @@
       "Live Oak/Eastside",
       "Westside Santa Cruz"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1157.jpg"
   },
   "Tory Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/tory-farm/",
@@ -1659,7 +1721,8 @@
       "Plums",
       "Pluots",
       "Pomelos"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Tory-1.jpg"
   },
   "Triple Delight Blueberries": {
     "link": "https://santacruzfarmersmarket.org/vendors/triple-delight-blueberries/",
@@ -1682,7 +1745,8 @@
     "products": [
       "Blueberries",
       "Raisins"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1109.jpg"
   },
   "Twin Girls Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/twin-girl-farms/",
@@ -1722,7 +1786,8 @@
       "Pluots",
       "pomegranates",
       "Pomelos"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1179.jpg"
   },
   "Twins Kitchen": {
     "link": "https://santacruzfarmersmarket.org/vendors/twins-kitchen/",
@@ -1745,7 +1810,8 @@
     "products": [
       "Jams",
       "Mustards"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2018/12/Twins-Kitchen.jpg"
   },
   "Vasquez Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/vasquez-farm/",
@@ -1769,7 +1835,8 @@
       "Blueberries",
       "Raspberries",
       "Strawberries"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Vasquez.jpg"
   },
   "Wild Stone Bakery": {
     "link": "https://santacruzfarmersmarket.org/vendors/wild-stone-bakery/",
@@ -1784,7 +1851,8 @@
     "markets": [
       "Downtown Santa Cruz"
     ],
-    "products": []
+    "products": [],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2020/02/Wild-Stone-Bakery.jpg"
   },
   "Windmill Farm": {
     "link": "https://santacruzfarmersmarket.org/vendors/windmill-farm/",
@@ -1825,6 +1893,7 @@
       "Strawberries",
       "Sugar Snap Peas",
       "Winter Squash"
-    ]
+    ],
+    "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/windmill_farm.jpg"
   }
 }
