@@ -94,7 +94,8 @@ async function scrapeVendors() {
 
   await browser.close();
   
-  // Save result to file
+  // Save result to file 
+  //change
   const outputPath = path.join(__dirname, `vendor-data.json`);
   
   try {
