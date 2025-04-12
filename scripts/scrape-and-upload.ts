@@ -1,5 +1,6 @@
 import puppeteer from "puppeteer";
 
+
 async function scrapeVendors() {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
