@@ -1,4 +1,6 @@
+import path from 'path';
 import puppeteer from "puppeteer";
+import fs from 'fs/promises';
 
 async function scrapeVendors() {
   const browser = await puppeteer.launch({ headless: true });
@@ -85,7 +87,17 @@ async function scrapeVendors() {
   }
 
   await browser.close();
-  console.log(JSON.stringify(result, null, 2));
+  
+  // Save result to file
+  const outputPath = path.join(__dirname, `vendor-data.json`);
+  
+  try {
+    await fs.writeFile(outputPath, JSON.stringify(result, null, 2));
+    console.log(`Data successfully saved to ${outputPath}`);
+
+  } catch (error) {
+    console.error('Error saving data to file:', error);
+  }
 }
 
 scrapeVendors();
