@@ -67,8 +67,8 @@ export function ShoppingTripPlanner({
           >
             <div className="text-sm text-muted-foreground mb-4">
               {coverage === total
-                ? `Visit these ${markets.length} market${markets.length > 1 ? "s" : ""} to get all ${total} ingredients:`
-                : `These ${markets.length} market${markets.length > 1 ? "s" : ""} have ${coverage} out of ${total} ingredients you need:`}
+                ? `Visit ${markets.length > 1 ? "these" : "this"} ${markets.length > 1 ? markets.length : ""} market${markets.length > 1 ? "s" : ""} to get ${total > 1 ? `all ${total}` : "the"} ingredient${total > 1 ? "s" : ""}:`
+                : `${markets.length > 1 ? `These ${markets.length} markets have` : "This market has"} ${coverage} out of ${total} ingredients you need:`}
             </div>
 
             <div className="space-y-4">
@@ -108,7 +108,8 @@ export function ShoppingTripPlanner({
                             Object.values(market.availability).filter(Boolean)
                               .length
                           }{" "}
-                          items):
+                          {`item${Object.values(market.availability).filter(Boolean)
+                              .length > 1 ? `s` : ""} to buy here`}):
                         </div>
                         <div className="flex flex-wrap gap-2">
                           {Object.entries(market.availability)

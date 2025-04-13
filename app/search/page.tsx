@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Search, ArrowRight, Check, ArrowUpDown } from "lucide-react";
 import { motion } from "framer-motion";
-import FarmerCard from "@/components/market-card";
+import FarmerCard from "@/components/market-search-card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { getIngredientAvailability } from "@/utils/supabase/client";
 import { Notification } from "@/components/ui/notification";

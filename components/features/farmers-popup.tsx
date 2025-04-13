@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import FarmerCard from "./farmerCard";
+import FarmerCard from "../ui/farmer-card";
 import {
   Dialog,
   DialogContent,

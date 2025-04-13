@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import FarmersPopup from "./ui/farmersPopup";
+import FarmersPopup from "./features/farmers-popup";
 import { getFarmerDetails } from "@/utils/supabase/client";
 
 type Props = {
