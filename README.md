@@ -1,6 +1,6 @@
 # Farmer Feast: Sustainable Eating Starts Here
 
-![alt text](https://github.com/aravadhikari05/farmer-feast/blob/fd25e848f4076d69a6ec3317764398fa89d82709/project-images/img-1.png "Homepage")
+![alt text](/project-images/img-1.png "Homepage")
 
 Farmer Feast is a web application that helps users find fresh, locally sourced ingredients for any dish they want to make — directly from nearby farmers and markets in the Santa Cruz area.
 

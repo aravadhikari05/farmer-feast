@@ -75,7 +75,7 @@ export default function Header() {
         </div>
 
         {/* Center: Nav Links */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center gap-6 text-sm">
+        <div className="absolute left-1/2 top-1/2 -translate-x-[160px] -translate-y-1/2 hidden md:flex items-center gap-6 text-sm">
           <Link
             href="/"
             className={`px-3 py-1.5 rounded-full font-medium transition-colors duration-200 ${
