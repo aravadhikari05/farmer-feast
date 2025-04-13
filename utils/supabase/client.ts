@@ -6,17 +6,31 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-export async function getFarmerDetails(farmer: string) {
+export async function getFarmerDetails(farmerNames: string[]) {
+  // Don't query if no farmers are provided
+  if (!farmerNames || farmerNames.length === 0) {
+    return {};
+  }
+
+  // Create query with filter for any of the farmer names
   const { data, error } = await supabase
-    .from("farmers")
-    .select("name, email, address, website, image_url")
-    .ilike("name", farmer);
+    .from('farmers')
+    .select('name, email, address, website, image_url')
+    .in('name', farmerNames);
 
   if (error) {
     throw new Error(error.message);
   }
 
-  return data;
+  // Transform array of farmer objects into a map with name as key
+  const farmerMap = (data || []).reduce((map: Record<string, any>, farmer) => {
+    if (farmer.name) {
+      map[farmer.name] = farmer;
+    }
+    return map;
+  }, {});
+
+  return farmerMap;
 }
 
 export async function getProductsByName(name: string) {

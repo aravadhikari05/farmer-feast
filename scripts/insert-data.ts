@@ -43,6 +43,7 @@ async function main() {
     email: vendor.description?.email || null,
     address: vendor.description?.contact || null,
     website: vendor.description?.website || null,
+    about: vendor.description?.about || null,
     image_url: vendor.image_url || null,
   }));
 

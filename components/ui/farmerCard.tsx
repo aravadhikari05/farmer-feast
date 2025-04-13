@@ -20,7 +20,7 @@ import {
     email: string;
     address: string;
     website: string;
-    bio: string;
+    bio?: string;
     products: string[];
   };
   
