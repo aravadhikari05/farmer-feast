@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { NextRequest, NextResponse } from "next/server";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
@@ -7,11 +7,14 @@ export async function POST(req: NextRequest) {
   const { mealName } = await req.json();
 
   if (!mealName) {
-    return NextResponse.json({ error: 'Meal name is required' }, { status: 400 });
+    return NextResponse.json(
+      { error: "Meal name is required" },
+      { status: 400 }
+    );
   }
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const result = await model.generateContent(
       ` List the ingredients needed to make ${mealName}.
@@ -35,12 +38,14 @@ export async function POST(req: NextRequest) {
     const response = result.response;
     const text = response.text();
 
-    console.log('Gemini SDK response:', text);
+    console.log("Gemini SDK response:", text);
 
     return NextResponse.json({ ingredients: text });
-
   } catch (err) {
-    console.error('Gemini SDK error:', err);
-    return NextResponse.json({ error: 'Gemini SDK call failed.' }, { status: 500 });
+    console.error("Gemini SDK error:", err);
+    return NextResponse.json(
+      { error: "Gemini SDK call failed." },
+      { status: 500 }
+    );
   }
 }
