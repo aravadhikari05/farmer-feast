@@ -20,9 +20,7 @@ export default function SearchPage() {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [ingredients, setIngredients] = useState<string[]>([]);
-  const [marketData, setMarketData] = useState<
-    { name: string; location: string; hours: string }[]
-  >([]);
+  const showResults = ingredients.length > 0;
 
   // Typing animation
   useEffect(() => {
@@ -74,21 +72,26 @@ export default function SearchPage() {
             .replace(/\b\w/g, (c) => c.toUpperCase())
         ) || []
       );
-
-      setMarketData(data.markets || []);
     } catch (err) {
       console.error("API error:", err);
       setIngredients(["Something went wrong."]);
-      setMarketData([]);
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <div
-      className="w-full flex flex-col justify-start items-center px-4 pt-24"
-      style={{ minHeight: "calc(100vh - 233px)" }}
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: showResults ? 0 : 50 }}
+      transition={{ duration: 0.4 }}
+      className="w-full flex flex-col items-center px-4"
+      style={{
+        minHeight: "calc(100vh - 233px)",
+        justifyContent: showResults ? "flex-start" : "center",
+        paddingTop: showResults ? "6rem" : "0",
+      }}
     >
       {/* Title & Subtitle */}
       <motion.h1
@@ -97,7 +100,7 @@ export default function SearchPage() {
         transition={{ duration: 0.4 }}
         className="text-4xl font-bold text-center"
       >
-        Find Recipes
+        Find Ingredients
       </motion.h1>
 
       <motion.p
@@ -150,9 +153,7 @@ export default function SearchPage() {
           transition={{ duration: 0.4, delay: 0.3 }}
           className="mt-12 w-full max-w-2xl bg-card border border-muted rounded-2xl shadow-sm p-6"
         >
-          <h2 className="text-xl font-semibold text-primary mb-4">
-            Ingredients
-          </h2>
+          <h2 className="text-xl font-semibold mb-4">Ingredients</h2>
           <ul className="space-y-2">
             {ingredients.map((item, i) => (
               <li
@@ -166,36 +167,6 @@ export default function SearchPage() {
           </ul>
         </motion.div>
       )}
-
-      {/* Market Info */}
-      {marketData.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
-          className="mt-10 w-full max-w-2xl bg-card border border-muted rounded-2xl shadow-sm p-6"
-        >
-          <h2 className="text-xl font-semibold text-primary mb-4">
-            Where to Buy
-          </h2>
-          <ul className="space-y-4">
-            {marketData.map((market, i) => (
-              <li key={i} className="border border-muted rounded-lg p-4">
-                <div className="flex items-center gap-2 text-base font-medium">
-                  <MapPin className="w-4 h-4 text-muted-foreground" />
-                  {market.name}
-                </div>
-                <div className="text-sm text-muted-foreground mt-1">
-                  {market.location}
-                </div>
-                <div className="text-xs text-muted-foreground mt-0.5 italic">
-                  Hours: {market.hours}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      )}
-    </div>
+    </motion.div>
   );
 }
