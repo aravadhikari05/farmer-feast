@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
 // Supabase client
 const supabase = createClient(
@@ -7,10 +7,10 @@ const supabase = createClient(
 );
 
 export async function getFarmerDetails(farmer: string) {
-  const {data, error} = await supabase
-    .from('farmers')
-    .select('name, email, address, website, image_url')
-    .ilike('name', farmer)
+  const { data, error } = await supabase
+    .from("farmers")
+    .select("name, email, address, website, image_url")
+    .ilike("name", farmer);
 
   if (error) {
     throw new Error(error.message);
@@ -49,6 +49,60 @@ export async function getProductsByName(name: string) {
 
   return {
     product: name,
-    markets: groupedByMarket
+    markets: groupedByMarket,
   };
+}
+export async function getIngredientAvailability(ingredients: string[]) {
+  const startsWithFilters = ingredients
+    .map((ingredient) => `product.ilike.${ingredient}%`)
+    .join(",");
+
+  const { data, error } = await supabase
+    .from("product_farmers_markets")
+    .select("product, market, farmer") // include farmer here
+    .or(startsWithFilters);
+
+  if (error) throw new Error(error.message);
+
+  // Use Set to ensure uniqueness
+  type MarketData = {
+    market: string;
+    availability: Record<string, boolean>;
+    farmers: Set<string>;
+  };
+
+  const marketMap: Record<string, MarketData> = {};
+
+  for (const { market, product, farmer } of data) {
+    const matchingIngredient = ingredients.find((ing) =>
+      product.toLowerCase().startsWith(ing.toLowerCase())
+    );
+
+    if (!matchingIngredient) continue;
+
+    if (!marketMap[market]) {
+      marketMap[market] = {
+        market,
+        availability: {},
+        farmers: new Set(),
+      };
+    }
+
+    marketMap[market].availability[matchingIngredient] = true;
+    marketMap[market].farmers.add(farmer);
+  }
+
+  for (const market of Object.values(marketMap)) {
+    for (const ingredient of ingredients) {
+      if (!(ingredient in market.availability)) {
+        market.availability[ingredient] = false;
+      }
+    }
+  }
+
+  return Object.values(marketMap).map((entry) => ({
+    market: entry.market,
+    availability: entry.availability,
+    farmers: Array.from(entry.farmers),
+  }));
 }
