@@ -4,6 +4,32 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeSwitcher } from "./theme-switcher";
+import { DM_Serif_Display, Merriweather, Quicksand, Bitter, Cabin } from 'next/font/google';
+
+export const dmSerif = DM_Serif_Display({
+  weight: '400',
+  subsets: ['latin'],
+});
+
+export const merriweather = Merriweather({
+  weight: ['700'],
+  subsets: ['latin'],
+});
+
+export const quicksand = Quicksand({
+  weight: ['700'],
+  subsets: ['latin'],
+});
+
+export const bitter = Bitter({
+  weight: ['600'],
+  subsets: ['latin'],
+});
+
+export const cabin = Cabin({
+  weight: ['700'],
+  subsets: ['latin'],
+});
 
 export default function Header() {
   const pathname = usePathname();
@@ -38,7 +64,7 @@ export default function Header() {
             className="transition-all duration-200 ease-in-out w-7 h-7"
           />
           <span
-            className={`font-bold text-lg tracking-tight whitespace-nowrap overflow-hidden transition-all duration-200 ease-in-out transform ${
+            className={`${merriweather.className} font-bold text-lg tracking-tight whitespace-nowrap overflow-hidden transition-all duration-200 ease-in-out transform ${
               scrolled
                 ? "opacity-0 max-w-0 pointer-events-none"
                 : "opacity-100 max-w-xs"
@@ -68,7 +94,7 @@ export default function Header() {
                 : "hover:bg-muted text-muted-foreground"
             }`}
           >
-            RecipeSearch
+            Search
           </Link>
           <Link
             href="/markets"
@@ -131,7 +157,14 @@ export default function Header() {
             className="text-sm"
             onClick={() => setMobileOpen(false)}
           >
-            RecipeSearch
+            Search
+          </Link>
+          <Link
+            href="/markets"
+            className="text-sm"
+            onClick={() => setMobileOpen(false)}
+          >
+            Markets
           </Link>
           {/* {        <Link href="/markets" className="text-sm" onClick={() => setMobileOpen(false)}>
           Markets
