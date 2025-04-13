@@ -116,13 +116,13 @@ export default function FarmerCard({
           <div>{card}</div>
         </HoverCardTrigger>
         <HoverCardContent 
-          side="top" 
-          align="center"
+          side="left" 
+          align="start"
           avoidCollisions={true}
-          className="w-64 z-50"
+          className="w-64"
         >
           <div className="font-medium text-foreground mb-2">
-            About {name}
+            About
           </div>
           <p className="text-sm text-muted-foreground">
             {about}
