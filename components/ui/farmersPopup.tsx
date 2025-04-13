@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import FarmerCard from "./farmerCard";
 import {
@@ -13,7 +15,7 @@ type FarmerDetails = {
   email: string;
   address: string;
   website: string;
-  description?: string; // Added description field
+  about?: string; // Added description field
   products?: string[];
 };
 
@@ -47,12 +49,12 @@ export default function FarmersPopup({
               <FarmerCard
                 key={farmer.name}
                 name={farmer.name}
-                image={farmer.image_url || "/placeholder-farm.jpg"}
-                email={farmer.email || "Not available"}
-                address={farmer.address || "Not available"}
-                website={farmer.website || "https://example.com"}
-                products={farmer.products || ["Information not available"]}
-                bio={farmer.description}
+                image={farmer.image_url}
+                email={farmer.email}
+                address={farmer.address}
+                website={farmer.website}
+                products={farmer.products}
+                about={farmer.about}
               />
             ))}
           </div>

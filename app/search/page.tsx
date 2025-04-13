@@ -1,11 +1,12 @@
-// updated SearchPage.tsx with scrollable subpanel in FarmerCard
 "use client";
 
 import { useEffect, useState } from "react";
 import { Search, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import FarmerCard, { Farmer } from "@/components/market-card";
+import FarmerCard from "@/components/market-card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { getIngredientAvailability } from "@/utils/supabase/client";
+import { Notification } from "@/components/ui/notification";
 
 const dishes = [
   "Pasta Primavera",
@@ -23,8 +24,20 @@ export default function SearchPage() {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [ingredients, setIngredients] = useState<string[]>([]);
-  const [markets, setMarkets] = useState<Farmer[]>([]);
+  const [markets, setMarkets] = useState<any[]>([]);
   const [userLocation, setUserLocation] = useState<string | null>(null);
+  const [availabilityResults, setAvailabilityResults] = useState<any[]>([]);
+  // Track which ingredients the user already has
+  const [userHasIngredients, setUserHasIngredients] = useState<{
+    [key: string]: boolean;
+  }>({});
+  // Notification state
+  const [notification, setNotification] = useState({
+    isOpen: false,
+    type: "success" as "success" | "info" | "warning" | "error",
+    message: "",
+  });
+  console.log(availabilityResults);
 
   const showResults = ingredients.length > 0;
   const showSplit = showResults && markets.length > 0;
@@ -86,34 +99,114 @@ export default function SearchPage() {
       });
 
       const data = await res.json();
-      setIngredients(
+      const parsedIngredients =
         data.ingredients?.split(",").map((ingredient: string) =>
-          ingredient.trim().toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())
-        ) || []
-      );
+          ingredient
+            .trim()
+            .toLowerCase()
+            .replace(/\b\w/g, (c) => c.toUpperCase())
+        ) || [];
 
-      setMarkets([
-        {
-          name: "Santa Cruz Farmers Market",
-          location: "Cedar St & Lincoln St, Downtown, Santa Cruz, CA",
-          hours: "Wed 1–5pm",
-        },
-        {
-          name: "Westside Market",
-          location: "Mission St., Santa Cruz, CA",
-          hours: "Sat 9–1pm",
-        },
-      ]);
+      setIngredients(parsedIngredients);
+
+      // Initialize userHasIngredients with all ingredients set to false
+      const initialUserHasIngredients: { [key: string]: boolean } = {};
+      parsedIngredients.forEach((ingredient: string) => {
+        initialUserHasIngredients[ingredient] = false;
+      });
+      setUserHasIngredients(initialUserHasIngredients);
+
+      // Clear markets when new search happens
+      setMarkets([]);
+      setAvailabilityResults([]);
     } catch (err) {
       console.error("API error:", err);
       setIngredients(["Something went wrong."]);
+      setUserHasIngredients({});
     } finally {
       setLoading(false);
     }
   }
 
+  // Handle checkbox changes
+  const handleCheckboxChange = (ingredient: string, checked: boolean) => {
+    setUserHasIngredients((prev) => ({
+      ...prev,
+      [ingredient]: checked,
+    }));
+  };
+
+  // Check if all ingredients are selected
+  const areAllIngredientsSelected = () => {
+    return (
+      ingredients.length > 0 &&
+      ingredients.every((ingredient) => userHasIngredients[ingredient])
+    );
+  };
+
+  async function handleAvailabilityCheck() {
+    if (ingredients.length === 0) return;
+
+    // If all ingredients are selected, show notification
+    if (areAllIngredientsSelected()) {
+      setNotification({
+        isOpen: true,
+        type: "success",
+        message: "You already have all ingredients needed for this recipe!",
+      });
+      setAvailabilityResults([]);
+      setMarkets([]);
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // Filter out ingredients that the user already has
+      const ingredientsToCheck = ingredients.filter(
+        (ingredient) => !userHasIngredients[ingredient]
+      );
+
+      // Check availability for ingredients the user doesn't have
+      const results = await getIngredientAvailability(
+        ingredientsToCheck.map((ingredient) => ingredient.toLowerCase())
+      );
+      setAvailabilityResults(results);
+      setMarkets(results);
+
+      if (results.length === 0) {
+        setNotification({
+          isOpen: true,
+          type: "info",
+          message: "No markets found with your ingredients.",
+        });
+      }
+    } catch (err) {
+      console.error("Failed to get availability:", err);
+      setNotification({
+        isOpen: true,
+        type: "error",
+        message: "Error checking ingredient availability. Please try again.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const closeNotification = () => {
+    setNotification((prev) => ({ ...prev, isOpen: false }));
+  };
+
   return (
     <div className="w-full px-6">
+      {/* Notification component */}
+      <Notification
+        type={notification.type}
+        message={notification.message}
+        isOpen={notification.isOpen}
+        onClose={closeNotification}
+        duration={5000}
+      />
+
       <motion.div
         layout
         initial={{ opacity: 0, y: 30 }}
@@ -211,7 +304,13 @@ export default function SearchPage() {
                         className="flex items-center justify-between gap-2"
                       >
                         <div className="flex items-center space-x-2">
-                          <Checkbox id={`ingredient-${i}`} />
+                          <Checkbox
+                            id={`ingredient-${i}`}
+                            checked={userHasIngredients[item] || false}
+                            onCheckedChange={(checked) =>
+                              handleCheckboxChange(item, checked === true)
+                            }
+                          />
                           <label
                             htmlFor={`ingredient-${i}`}
                             className="text-sm text-muted-foreground"
@@ -221,7 +320,8 @@ export default function SearchPage() {
                         </div>
                         {isLast && (
                           <button
-                            type="submit"
+                            type="button"
+                            onClick={handleAvailabilityCheck}
                             className="ml-4 -mt-3 px-3 py-2 bg-primary text-primary-foreground text-xs font-medium hover:bg-primary/90 transition rounded-full"
                             disabled={loading}
                           >
@@ -239,26 +339,42 @@ export default function SearchPage() {
           {showSplit && (
             <motion.div
               layout
-              className="w-full md:sticky md:top-24 h-fit rounded-2xl shadow-sm backdrop-blur-md bg-card/80 border border-muted p-6"
+              className="w-full md:max-w-sm"
               initial={{ x: 40, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-xl font-semibold mb-6 text-primary">
-                Nearby Markets
-              </h2>
-              <div className="space-y-6">
-                {markets.map((market, i) => (
-                  <FarmerCard
-                    key={i}
-                    name={market.name}
-                    location={market.location}
-                    hours={market.hours}
-                    userLocation={userLocation}
-                    marketIngredients={["Tomatoes", "Basil", "Olive Oil"]}
-                    allIngredients={ingredients}
-                  />
-                ))}
+              <div className="md:sticky md:top-24 h-fit rounded-2xl shadow-sm backdrop-blur-md bg-card/80 border border-muted p-6 z-10">
+                <h2 className="text-xl font-semibold mb-6 text-primary">
+                  Nearby Markets
+                </h2>
+                <div className="space-y-6">
+                  {[...availabilityResults]
+                    .sort((a, b) => {
+                      const aCount = Object.values(a.availability).filter(
+                        Boolean
+                      ).length;
+                      const bCount = Object.values(b.availability).filter(
+                        Boolean
+                      ).length;
+                      return bCount - aCount;
+                    })
+                    .map((result, i) => (
+                      <FarmerCard
+                        key={i}
+                        name={result.market.name}
+                        location={result.market.location}
+                        hours={result.market.time}
+                        seasonInfo={result.market.months}
+                        userLocation={userLocation}
+                        availability={result.availability}
+                        allIngredients={ingredients.filter(
+                          (ingredient) => !userHasIngredients[ingredient]
+                        )}
+                        farmers={result.farmers}
+                      />
+                    ))}
+                </div>
               </div>
             </motion.div>
           )}

@@ -1,5 +1,16 @@
 import { createClient } from "@supabase/supabase-js";
+import marketInfo from "../../market-info.json"; // adjust path as needed
 
+const marketMetaMap = Object.fromEntries(
+  marketInfo.markets.map((m) => [
+    m.name.toLowerCase(), // normalize for consistent matching
+    {
+      location: m.location,
+      time: m.time,
+      months: m.months,
+    },
+  ])
+);
 // Supabase client
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -15,7 +26,7 @@ export async function getFarmerDetails(farmerNames: string[]) {
   // Create query with filter for any of the farmer names
   const { data, error } = await supabase
     .from('farmers')
-    .select('name, email, address, website, image_url')
+    .select('name, email, address, website, image_url, about') // Added description field
     .in('name', farmerNames);
 
   if (error) {
@@ -65,20 +76,25 @@ export async function getProductsByName(name: string) {
     product: name,
     markets: groupedByMarket,
   };
-}
-export async function getIngredientAvailability(ingredients: string[]) {
+}export async function getIngredientAvailability(ingredients: string[]) {
   const startsWithFilters = ingredients
     .map((ingredient) => `product.ilike.${ingredient}%`)
     .join(",");
 
   const { data, error } = await supabase
     .from("product_farmers_markets")
-    .select("product, market, farmer") // include farmer here
+    .select("product, market, farmer")
     .or(startsWithFilters);
 
   if (error) throw new Error(error.message);
 
-  // Use Set to ensure uniqueness
+  const normalizeMarket = (market: string) => {
+    if (market.includes("Westside")) return "Westside";
+    if (market.includes("Downtown")) return "Downtown";
+    if (market.includes("Live Oak")) return "Live Oak";
+    return market;
+  };
+
   type MarketData = {
     market: string;
     availability: Record<string, boolean>;
@@ -94,16 +110,18 @@ export async function getIngredientAvailability(ingredients: string[]) {
 
     if (!matchingIngredient) continue;
 
-    if (!marketMap[market]) {
-      marketMap[market] = {
-        market,
+    const normalizedMarket = normalizeMarket(market);
+
+    if (!marketMap[normalizedMarket]) {
+      marketMap[normalizedMarket] = {
+        market: normalizedMarket,
         availability: {},
         farmers: new Set(),
       };
     }
 
-    marketMap[market].availability[matchingIngredient] = true;
-    marketMap[market].farmers.add(farmer);
+    marketMap[normalizedMarket].availability[matchingIngredient] = true;
+    marketMap[normalizedMarket].farmers.add(farmer);
   }
 
   for (const market of Object.values(marketMap)) {
@@ -115,7 +133,10 @@ export async function getIngredientAvailability(ingredients: string[]) {
   }
 
   return Object.values(marketMap).map((entry) => ({
-    market: entry.market,
+    market: {
+      name: entry.market,
+      ...marketMetaMap[entry.market.toLowerCase()],
+    },
     availability: entry.availability,
     farmers: Array.from(entry.farmers),
   }));

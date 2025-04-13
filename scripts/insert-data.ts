@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
 // change to regular .env for production probably
-// dotenv.config({path: '.env.local'});
-dotenv.config();
+dotenv.config({path: '.env.local'});
+// dotenv.config();
 import fs from 'fs';
 import path from 'path';
 
@@ -43,7 +43,7 @@ async function main() {
     email: vendor.description?.email || null,
     address: vendor.description?.contact || null,
     website: vendor.description?.website || null,
-    about: vendor.description?.about || null,
+    about: vendor.description?.bio || null,
     image_url: vendor.image_url || null,
   }));
 
