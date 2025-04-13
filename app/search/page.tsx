@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Search, MapPin } from "lucide-react";
+import { Search, ArrowRight, ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
+import { Checkbox } from "@/components/ui/checkbox";
+
 
 const dishes = [
   "Pasta Primavera",
@@ -24,7 +26,6 @@ export default function SearchPage() {
     { name: string; location: string; hours: string }[]
   >([]);
 
-  // Typing animation
   useEffect(() => {
     const fullText = `Try '${dishes[index]}'`;
     if (hasInteracted) {
@@ -90,7 +91,6 @@ export default function SearchPage() {
       className="w-full flex flex-col justify-start items-center px-4 pt-24"
       style={{ minHeight: "calc(100vh - 233px)" }}
     >
-      {/* Title & Subtitle */}
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -110,7 +110,6 @@ export default function SearchPage() {
         the freshest ingredients.
       </motion.p>
 
-      {/* Search Bar */}
       <motion.form
         onSubmit={handleSearch}
         initial={{ opacity: 0, y: 20 }}
@@ -142,7 +141,6 @@ export default function SearchPage() {
         </div>
       </motion.form>
 
-      {/* Ingredients */}
       {ingredients.length > 0 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -150,50 +148,44 @@ export default function SearchPage() {
           transition={{ duration: 0.4, delay: 0.3 }}
           className="mt-12 w-full max-w-2xl bg-card border border-muted rounded-2xl shadow-sm p-6"
         >
-          <h2 className="text-xl font-semibold text-primary mb-4">
+          <h2 className="text-xl font-semibold text-primary mb-2">
             Ingredients
           </h2>
-          <ul className="space-y-2">
-            {ingredients.map((item, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 text-sm text-muted-foreground"
-              >
-                <span className="mt-1 w-2 h-2 bg-primary rounded-full shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      )}
+          <p className="text-sm font-light text-muted-foreground mb-4">
+            Select what you already have:
+          </p>
 
-      {/* Market Info */}
-      {marketData.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
-          className="mt-10 w-full max-w-2xl bg-card border border-muted rounded-2xl shadow-sm p-6"
-        >
-          <h2 className="text-xl font-semibold text-primary mb-4">
-            Where to Buy
-          </h2>
-          <ul className="space-y-4">
-            {marketData.map((market, i) => (
-              <li key={i} className="border border-muted rounded-lg p-4">
-                <div className="flex items-center gap-2 text-base font-medium">
-                  <MapPin className="w-4 h-4 text-muted-foreground" />
-                  {market.name}
+          {/* Ingredient List */}
+          <div className="flex flex-col gap-2 mb-2">
+            {ingredients.map((item, i) => {
+              const isLast = i === ingredients.length - 1;
+              return (
+                <div
+                  key={i}
+                  className="flex items-center justify-between gap-2"
+                >
+                  <div className="flex items-center space-x-2">
+                    <Checkbox id={`ingredient-${i}`} />
+                    <label
+                      htmlFor={`ingredient-${i}`}
+                      className="text-sm text-muted-foreground"
+                    >
+                      {item}
+                    </label>
+                  </div>
+                  {isLast && (
+                    <button
+                      type="submit"
+                      className="ml-4 -mt-3 px-3 py-2 bg-primary text-primary-foreground text-xs font-medium hover:bg-primary/90 transition rounded-full"
+                      disabled={loading}
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  )}
                 </div>
-                <div className="text-sm text-muted-foreground mt-1">
-                  {market.location}
-                </div>
-                <div className="text-xs text-muted-foreground mt-0.5 italic">
-                  Hours: {market.hours}
-                </div>
-              </li>
-            ))}
-          </ul>
+              );
+            })}
+          </div>
         </motion.div>
       )}
     </div>
