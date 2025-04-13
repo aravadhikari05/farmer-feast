@@ -25,7 +25,7 @@ export default function LandingPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentPrompt((prev) => (prev + 1) % prompts.length);
-    }, 4000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 

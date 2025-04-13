@@ -22,9 +22,7 @@ export default function SearchPage() {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [ingredients, setIngredients] = useState<string[]>([]);
-  const [marketData, setMarketData] = useState<
-    { name: string; location: string; hours: string }[]
-  >([]);
+  const showResults = ingredients.length > 0;
 
   useEffect(() => {
     const fullText = `Try '${dishes[index]}'`;
@@ -75,21 +73,26 @@ export default function SearchPage() {
             .replace(/\b\w/g, (c) => c.toUpperCase())
         ) || []
       );
-
-      setMarketData(data.markets || []);
     } catch (err) {
       console.error("API error:", err);
       setIngredients(["Something went wrong."]);
-      setMarketData([]);
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <div
-      className="w-full flex flex-col justify-start items-center px-4 pt-24"
-      style={{ minHeight: "calc(100vh - 233px)" }}
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: showResults ? 0 : 50 }}
+      transition={{ duration: 0.4 }}
+      className="w-full flex flex-col items-center px-4"
+      style={{
+        minHeight: "calc(100vh - 233px)",
+        justifyContent: showResults ? "flex-start" : "center",
+        paddingTop: showResults ? "6rem" : "0",
+      }}
     >
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
@@ -97,7 +100,7 @@ export default function SearchPage() {
         transition={{ duration: 0.4 }}
         className="text-4xl font-bold text-center"
       >
-        Find Recipes
+        Find Ingredients
       </motion.h1>
 
       <motion.p
@@ -148,6 +151,21 @@ export default function SearchPage() {
           transition={{ duration: 0.4, delay: 0.3 }}
           className="mt-12 w-full max-w-2xl bg-card border border-muted rounded-2xl shadow-sm p-6"
         >
+          <h2 className="text-xl font-semibold mb-4">Ingredients</h2>
+          <ul className="space-y-2">
+            {ingredients.map((item, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-3 text-sm text-muted-foreground"
+              >
+                <span className="mt-1 w-2 h-2 bg-primary rounded-full shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      )}
+    </motion.div>
           <h2 className="text-xl font-semibold text-primary mb-2">
             Ingredients
           </h2>
