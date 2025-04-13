@@ -9,6 +9,11 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { MapPin, Info } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import FarmersPopup from "./ui/farmersPopup";
+import { getFarmerDetails } from "@/utils/supabase/client";
+
 
 type Props = {
   name: string;
@@ -38,7 +43,7 @@ async function getTravelTime(
   return data.travelTime;
 }
 
-export default function FarmerCard({
+export default function MarketCard({
   name,
   location,
   hours,
@@ -52,6 +57,9 @@ export default function FarmerCard({
   const [sortMode, setSortMode] = useState<
     "default" | "az" | "za" | "available"
   >("default");
+  const [isFarmersDialogOpen, setIsFarmersDialogOpen] = useState(false);
+  const [farmerDetails, setFarmerDetails] = useState<Record<string, any>>({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (location) {
@@ -86,6 +94,42 @@ export default function FarmerCard({
     <div className="rounded-2xl border border-muted bg-card p-6 shadow-md hover:shadow-lg transition">
       {/* Market Title */}
       <div className="text-xl font-semibold text-primary mb-1">{name}</div>
+  const handleOpenFarmersDialog = async () => {
+    setIsLoading(true);
+    try {
+      // Pass the farmers array to getFarmerDetails
+      const details = await getFarmerDetails(farmers);
+      setFarmerDetails(details);
+      
+      // Open the dialog after data is loaded
+      setIsFarmersDialogOpen(true);
+    } catch (error) {
+      console.error("Failed to fetch farmer details:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="border border-muted rounded-xl bg-card p-4 shadow-sm">
+      {/* Market Header */}
+      <div className="flex items-center justify-between text-primary font-semibold text-base">
+        <div className="flex items-center gap-2">
+          <MapPin className="w-4 h-4" />
+          {name}
+        </div>
+        
+        <div className="flex gap-2">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="h-7 px-3 text-xs"
+            onClick={handleOpenFarmersDialog}
+          >
+            {isLoading ? "Loading..." : "Farmers"}
+          </Button>
+        </div>
+      </div>
 
       {/* Market Metadata */}
       <div className="text-sm text-muted-foreground space-y-1 mb-4">
@@ -175,6 +219,14 @@ export default function FarmerCard({
           </div>
         </div>
       )}
+
+      {/* Farmers Popup */}
+      <FarmersPopup
+        isOpen={isFarmersDialogOpen}
+        onClose={() => setIsFarmersDialogOpen(false)}
+        farmers={farmerDetails}
+        marketName={name}
+      />
     </div>
   );
 }
