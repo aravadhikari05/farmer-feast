@@ -42,14 +42,14 @@ We're submitting Farmer Feast under the **Sustainability** category because we b
 
 ---
 
-## Why Farmers Feast?
+## Why Farmer Feast?
 
 Eating local is better for:
 - **The planet**: Reduced transportation and emissions
 - **Your health**: Fresher, nutrient-rich ingredients
 - **The community**: Direct support for local farmers and small businesses
 
-Farm2Fork makes sustainability **convenient, modern, and personal**.
+Farmer Feast makes sustainability **convenient, modern, and personal**.
 
 ---
 
