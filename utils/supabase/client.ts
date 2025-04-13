@@ -76,7 +76,8 @@ export async function getProductsByName(name: string) {
     product: name,
     markets: groupedByMarket,
   };
-}export async function getIngredientAvailability(ingredients: string[]) {
+}
+export async function getIngredientAvailability(ingredients: string[]) {
   const startsWithFilters = ingredients
     .map((ingredient) => `product.ilike.${ingredient}%`)
     .join(",");
@@ -104,9 +105,9 @@ export async function getProductsByName(name: string) {
   const marketMap: Record<string, MarketData> = {};
 
   for (const { market, product, farmer } of data) {
-    const matchingIngredient = ingredients.find((ing) =>
-      product.toLowerCase().startsWith(ing.toLowerCase())
-    );
+    const matchingIngredient = ingredients.find((ing) => {
+      return product.toLowerCase().includes(ing.toLowerCase());
+    });
 
     if (!matchingIngredient) continue;
 

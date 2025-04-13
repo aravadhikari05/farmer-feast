@@ -38,35 +38,37 @@
 
   .dark {
     /* Dark Mode */
-    --background: 30 20% 16%;            /* Rich dark mocha */
-    --foreground: 42 40% 85%;            /* Soft beige */
-
-    --card: 30 20% 16%;
-    --card-foreground: 42 40% 85%;
-
-    --popover: 30 20% 16%;
-    --popover-foreground: 42 40% 85%;
-
-    --primary: 20 35% 30%;               /* Burnt espresso brown */
-    --primary-foreground: 42 100% 95%;
-
-    --secondary: 35 20% 25%;             /* Bark brown */
-    --secondary-foreground: 42 40% 85%;
-
-    --muted: 30 15% 22%;                 /* Cocoa dust */
-    --muted-foreground: 42 30% 75%;
-
-    --accent: 30 50% 50%;                /* Burnt terracotta */
-    --accent-foreground: 42 100% 95%;
-
-    --destructive: 0 60% 40%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 30 15% 30%;
-    --input: 30 15% 25%;
-    --ring: 35 40% 60%;
+    --background: 30 20% 12%;            /* Deeper mocha base */
+    --foreground: 42 40% 88%;            /* Soft beige for body text */
+  
+    --card: 30 20% 14%;
+    --card-foreground: 42 40% 88%;
+  
+    --popover: 30 20% 14%;
+    --popover-foreground: 42 40% 88%;
+  
+    --primary: 25 35% 55%;               /* Warm cedarwood, readable as text */
+    --primary-foreground: 42 100% 95%;   /* Creamy highlight for contrast */
+  
+    --secondary: 35 20% 25%;             /* Muted bark */
+    --secondary-foreground: 42 40% 88%;
+  
+    --muted: 30 15% 22%;                 /* Cocoa dust background */
+    --muted-foreground: 42 30% 70%;      /* Soft gray-brown for less important text */
+  
+    --accent: 35 50% 55%;                /* Golden terracotta — strong but not neon */
+    --accent-foreground: 42 100% 95%;    /* Light highlight on accent buttons/text */
+  
+    --destructive: 0 70% 45%;            /* Slightly brighter clay red for clarity */
+    --destructive-foreground: 42 100% 95%;
+  
+    --border: 30 15% 25%;                /* Subtle outline for cards/sections */
+    --input: 30 15% 20%;
+    --ring: 35 40% 65%;                  /* Accent ring for focus outline */
+  
+    --radius: 0.5rem;
   }
-
+  
   * {
     @apply border-border;
   }
