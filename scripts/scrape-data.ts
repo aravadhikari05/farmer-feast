@@ -1,4 +1,6 @@
+import path from 'path';
 import puppeteer from "puppeteer";
+import fs from 'fs/promises';
 
 
 async function scrapeVendors() {
@@ -40,7 +42,7 @@ async function scrapeVendors() {
 
     await page.goto(absoluteLink, { waitUntil: "domcontentloaded" });
 
-    const { description, markets, products } = await page.evaluate(() => {
+    const { description, markets, products, image_url } = await page.evaluate(() => {
       const descResult: Record<string, string> = {};
       const rows = document.querySelectorAll("tr");
       rows.forEach((tr) => {
@@ -55,13 +57,13 @@ async function scrapeVendors() {
           if (key) descResult[key] = value || "";
         }
       });
-
+    
       const sidebarSections = Array.from(
         document.querySelectorAll(".vendor_products_sidebar")
       );
       const markets: string[] = [];
       const products: string[] = [];
-
+    
       sidebarSections.forEach((section) => {
         const heading = section.querySelector("h3")?.textContent?.trim();
         const links = Array.from(section.querySelectorAll("a")).map(
@@ -73,20 +75,36 @@ async function scrapeVendors() {
           products.push(...links);
         }
       });
-
-      return { description: descResult, markets, products };
+    
+      const imageEl = document.querySelector(".vendor_thumb img");
+      const image_url = imageEl?.getAttribute("src") || "";
+    
+      return { description: descResult, markets, products, image_url };
     });
+    
 
     result[name] = {
       link: absoluteLink,
       description,
       markets,
       products,
+      image_url
     };
   }
 
   await browser.close();
-  console.log(JSON.stringify(result, null, 2));
+  
+  // Save result to file 
+  //change
+  const outputPath = path.join(__dirname, `vendor-data.json`);
+  
+  try {
+    await fs.writeFile(outputPath, JSON.stringify(result, null, 2));
+    console.log(`Data successfully saved to ${outputPath}`);
+
+  } catch (error) {
+    console.error('Error saving data to file:', error);
+  }
 }
 
 scrapeVendors();
