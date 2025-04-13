@@ -69,9 +69,9 @@ export default function ProductList() {
                 <AccordionContent>
                   {ingredient.farmers.length > 0 ? (
                     <div className="flex flex-wrap gap-4">
-                      {ingredient.farmers.map((farmer) => (
+                      {/*ingredient.farmers.map((farmer) => (
                         <FarmerCard key={farmer.email} {...farmer} />
-                      ))}
+                      ))*/}
                     </div>
                   ) : (
                     <p className="text-muted-foreground text-sm">No farmers available for this ingredient.</p>

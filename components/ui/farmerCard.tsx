@@ -6,6 +6,13 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card";
+
+  import {
+    HoverCard,
+    HoverCardContent,
+    HoverCardTrigger,
+  } from "@/components/ui/hover-card"
+  
   
   type FarmerCardProps = {
     name: string;
@@ -13,6 +20,7 @@ import {
     email: string;
     address: string;
     website: string;
+    bio: string;
     products: string[];
   };
   
@@ -22,10 +30,15 @@ import {
     email,
     address,
     website,
+    bio,
     products,
   }: FarmerCardProps) {
     return (
-      <Card className="w-[250px] flex flex-col overflow-hidden shadow-md">
+      <div>
+      <HoverCard >
+        <HoverCardTrigger asChild>
+          <div>
+        <Card className="w-[250px] flex flex-col overflow-hidden shadow-md">
         <CardHeader className="text-center">
           <CardTitle className="text-lg font-bold cursor-pointer">
             {name}
@@ -66,6 +79,21 @@ import {
           </div>
         </CardFooter>
       </Card>
+      </div>
+        </HoverCardTrigger>
+        <HoverCardContent side = "right" className="bg-primary-foreground w-64 shadow-xl rounded-lg">
+          <div className = "font-semibold mb-2">
+            About
+          </div>
+          <p className="text-sm font-light">
+            {bio}
+            </p>
+        </HoverCardContent>
+      </HoverCard>
+
+
+      
+      </div>
     );
   }
   
