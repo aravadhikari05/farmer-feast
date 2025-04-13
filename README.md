@@ -6,6 +6,8 @@ Farmer Feast is a web application that helps users find fresh, locally sourced i
 
 Our mission is to promote **sustainable food practices**, support **local farmers**, and encourage **healthy eating habits**. By connecting dishes to real-world market data, we make it easier than ever to shop local and eat fresh.
 
+[farmerfeast.tech](https://www.farmerfeast.tech/)
+
 ---
 
 ## Built for Sustainability
@@ -19,9 +21,9 @@ We're submitting Farmer Feast under the **Sustainability** category because we b
 
 ## How It Works
 
-1. **User enters any dish** (e.g., “Vegan Tacos”).
-2. **Our engine generates a list of ingredients** using prompt-engineered calls to **Gemini**.
-3. We **cross-reference the ingredients** with scraped market and farmer data stored in a database.
+1. User enters any dish (e.g., “Vegan Tacos”).
+2. Our engine generates a list of ingredients using prompt-engineered calls to an LLM.
+3. We cross-reference the ingredients with scraped market and farmer data stored in a database.
 4. We calculate the distance to nearby farmers markets selling the required items.
 5. We display a curated list of farmers markets and farmers, highlighting available ingredients and proximity.
 
@@ -50,6 +52,8 @@ Eating local is better for:
 - **The community**: Direct support for local farmers and small businesses
 
 Farmer Feast makes sustainability **convenient, modern, and personal**.
+
+Try it now at: [farmerfeast.tech](https://www.farmerfeast.tech/) 
 
 ---
 
