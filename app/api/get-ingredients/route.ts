@@ -15,25 +15,26 @@ export async function POST(req: NextRequest) {
 
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
     const result = await model.generateContent(
-      ` List the ingredients needed to make ${mealName}.
-        If the meal name appears to be a single ingredient itself (e.g., "tomato"), return just that ingredient.
-        Do not include introductions, instructions, formatting notes, or extra commentary.
-
-        Follow these formatting rules:
-        - Use only lowercase
-        - Use singular forms (no plurals)
-        - Only list whole, raw ingredients (e.g., "tomato" instead of "marinara sauce")
-        - Avoid brand names or compound items (e.g., no "hot sauce" or "soy milk")
-        - Name items as they'd be sold at a farmers market
-        - Avoid toppings, garnishes, or sides unless central to the dish
-        - Avoid descriptive adjectives (e.g., no "fresh", "free-range")
-        - Separate items using **commas only**, no newlines
-
-        Be thorough. If needed, search multiple recipe variations to infer a complete ingredient list.
-        Return only the final list. `
+      `List the ingredients needed to make ${mealName}.
+       If the meal name appears to be a single ingredient itself (e.g., "tomato"), return just that ingredient.
+    
+       Follow these formatting rules:
+       - Use only lowercase
+       - Use singular forms (e.g., "carrot" not "carrots")
+       - Only list raw, whole ingredients (e.g., "tomato" not "marinara sauce")
+       - Reduce processed or derived ingredients to their base whole form (e.g., "breadcrumb" → "bread")
+       - Use base item names only (e.g., "chicken" instead of "chicken breast")
+       - Avoid brand names or compound items (e.g., no "hot sauce" or "soy milk")
+       - Name items as they'd be sold at a farmers market
+       - Avoid toppings, garnishes, or sides unless central to the dish
+       - Avoid descriptive adjectives (e.g., no "fresh", "free-range")
+       - Separate items using **commas only**, no newlines or bullet points
+    
+       Be thorough. If needed, search multiple recipe variations to infer a complete ingredient list.
+       Return only the final list.`
     );
+    
 
     const response = result.response;
     const text = response.text();

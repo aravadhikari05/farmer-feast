@@ -1,13 +1,38 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Search, ArrowRight } from "lucide-react";
+import { Search, ArrowRight, Check, ArrowUpDown } from "lucide-react";
 import { motion } from "framer-motion";
 import FarmerCard from "@/components/market-card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { getIngredientAvailability } from "@/utils/supabase/client";
 import { Notification } from "@/components/ui/notification";
+import { ShoppingTripPlanner } from "@/components/shopping-trip-planner";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+type Market = {
+  market: {
+    name: string;
+  };
+  availability: Record<string, boolean>;
+};
 
+type CoverageResult = {
+  covered: Record<string, string[]>;
+  count: number;
+};
+
+type ShoppingTripResult = {
+  markets: Market[];
+  coverageCount: number;
+  totalCount: number;
+  ingredientMap: Record<string, string[]>;
+} | null;
 const dishes = [
   "Pasta Primavera",
   "Chicken Parmesan",
@@ -24,20 +49,34 @@ export default function SearchPage() {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [ingredients, setIngredients] = useState<string[]>([]);
+  const [unownedIngredients, setUnownedIngredients] = useState<string[]>([]);
   const [markets, setMarkets] = useState<any[]>([]);
   const [userLocation, setUserLocation] = useState<string | null>(null);
   const [availabilityResults, setAvailabilityResults] = useState<any[]>([]);
-  // Track which ingredients the user already has
+  const [marketSort, setMarketSort] = useState<
+    "mostIngredients" | "leastIngredients"
+  >("mostIngredients");
   const [userHasIngredients, setUserHasIngredients] = useState<{
     [key: string]: boolean;
   }>({});
-  // Notification state
   const [notification, setNotification] = useState({
     isOpen: false,
     type: "success" as "success" | "info" | "warning" | "error",
     message: "",
   });
-  console.log(availabilityResults);
+  const [shoppingTrip, setShoppingTrip] = useState<{
+    isOpen: boolean;
+    markets: any[];
+    coverage: number;
+    total: number;
+    ingredientMap: Record<string, string[]>;
+  }>({
+    isOpen: false,
+    markets: [],
+    coverage: 0,
+    total: 0,
+    ingredientMap: {},
+  });
 
   const showResults = ingredients.length > 0;
   const showSplit = showResults && markets.length > 0;
@@ -109,16 +148,21 @@ export default function SearchPage() {
 
       setIngredients(parsedIngredients);
 
-      // Initialize userHasIngredients with all ingredients set to false
       const initialUserHasIngredients: { [key: string]: boolean } = {};
       parsedIngredients.forEach((ingredient: string) => {
         initialUserHasIngredients[ingredient] = false;
       });
       setUserHasIngredients(initialUserHasIngredients);
 
-      // Clear markets when new search happens
       setMarkets([]);
       setAvailabilityResults([]);
+      setShoppingTrip({
+        isOpen: false,
+        markets: [],
+        coverage: 0,
+        total: 0,
+        ingredientMap: {},
+      });
     } catch (err) {
       console.error("API error:", err);
       setIngredients(["Something went wrong."]);
@@ -128,7 +172,6 @@ export default function SearchPage() {
     }
   }
 
-  // Handle checkbox changes
   const handleCheckboxChange = (ingredient: string, checked: boolean) => {
     setUserHasIngredients((prev) => ({
       ...prev,
@@ -136,7 +179,6 @@ export default function SearchPage() {
     }));
   };
 
-  // Check if all ingredients are selected
   const areAllIngredientsSelected = () => {
     return (
       ingredients.length > 0 &&
@@ -144,10 +186,81 @@ export default function SearchPage() {
     );
   };
 
+  function getCombinations<T>(arr: T[], k: number): T[][] {
+    const results: T[][] = [];
+    function helper(start: number, combo: T[]) {
+      if (combo.length === k) {
+        results.push(combo);
+        return;
+      }
+      for (let i = start; i < arr.length; i++) {
+        helper(i + 1, [...combo, arr[i]]);
+      }
+    }
+    helper(0, []);
+    return results;
+  }
+
+  function getCoverage(
+    combination: Market[],
+    unownedIngredients: string[]
+  ): CoverageResult {
+    const covered: Record<string, string[]> = {};
+
+    combination.forEach((market) => {
+      unownedIngredients.forEach((ingredient) => {
+        const lower = ingredient.toLowerCase();
+        if (market.availability[lower]) {
+          if (!covered[lower]) {
+            covered[lower] = [market.market.name];
+          } else if (!covered[lower].includes(market.market.name)) {
+            covered[lower].push(market.market.name);
+          }
+        }
+      });
+    });
+
+    return {
+      covered,
+      count: Object.keys(covered).length,
+    };
+  }
+
+  function findShoppingTripExhaustive(
+    marketsData: Market[],
+    unownedIngredients: string[],
+    maxStops: number = 3
+  ): ShoppingTripResult {
+    let bestCombination: Market[] | null = null;
+    let bestCoverageCount = 0;
+    let bestIngredientMap: Record<string, string[]> = {};
+
+    for (let k = 1; k <= maxStops; k++) {
+      const combos = getCombinations(marketsData, k);
+      combos.forEach((combo) => {
+        const { covered, count } = getCoverage(combo, unownedIngredients);
+        if (count > bestCoverageCount) {
+          bestCoverageCount = count;
+          bestCombination = combo;
+          bestIngredientMap = covered;
+        }
+      });
+
+      if (bestCoverageCount === unownedIngredients.length) break;
+    }
+
+    return bestCombination
+      ? {
+          markets: bestCombination,
+          coverageCount: bestCoverageCount,
+          totalCount: unownedIngredients.length,
+          ingredientMap: bestIngredientMap,
+        }
+      : null;
+  }
   async function handleAvailabilityCheck() {
     if (ingredients.length === 0) return;
 
-    // If all ingredients are selected, show notification
     if (areAllIngredientsSelected()) {
       setNotification({
         isOpen: true,
@@ -156,24 +269,63 @@ export default function SearchPage() {
       });
       setAvailabilityResults([]);
       setMarkets([]);
+      setShoppingTrip({
+        isOpen: false,
+        markets: [],
+        coverage: 0,
+        total: 0,
+        ingredientMap: {},
+      });
       return;
     }
 
     setLoading(true);
     try {
-      // Filter out ingredients that the user already has
       const ingredientsToCheck = ingredients.filter(
         (ingredient) => !userHasIngredients[ingredient]
       );
+      setUnownedIngredients(ingredientsToCheck);
+      console.log(ingredientsToCheck)
 
-      // Check availability for ingredients the user doesn't have
       const results = await getIngredientAvailability(
         ingredientsToCheck.map((ingredient) => ingredient.toLowerCase())
       );
       setAvailabilityResults(results);
+      const marketsData = results.map((result) => ({
+        market: result.market,
+        availability: result.availability,
+        farmers: result.farmers,
+        location: result.market.location,
+        hours: result.market.time,
+        seasonInfo: result.market.months,
+        ingredientCount: Object.values(result.availability).filter(Boolean)
+          .length,
+      }));
       setMarkets(results);
 
-      if (results.length === 0) {
+      if (results.length > 0) {
+        setTimeout(() => {
+          const trip = findShoppingTripExhaustive(
+            marketsData,
+            ingredientsToCheck,
+            3
+          );
+          if (trip) {
+            // Option: Attach the complete ingredients list to each market
+            // (so that your component can use it for the full ingredient guide)
+            setShoppingTrip({
+              isOpen: true,
+              markets: trip.markets.map((market) => ({
+                ...market,
+                allIngredients: ingredientsToCheck, // attach full list here
+              })),
+              coverage: trip.coverageCount,
+              total: trip.totalCount,
+              ingredientMap: trip.ingredientMap,
+            });
+          }
+        }, 100);
+      } else {
         setNotification({
           isOpen: true,
           type: "info",
@@ -198,7 +350,6 @@ export default function SearchPage() {
 
   return (
     <div className="w-full px-6">
-      {/* Notification component */}
       <Notification
         type={notification.type}
         message={notification.message}
@@ -225,7 +376,7 @@ export default function SearchPage() {
         >
           <div
             className={`flex-1 flex flex-col ${
-              showResults ? "md:items-start" : "items-center"
+              availabilityResults.length > 0 ? "md:items-start" : "items-center"
             }`}
           >
             <motion.h1
@@ -233,7 +384,7 @@ export default function SearchPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               className={`text-4xl font-bold ${
-                showResults ? "md:text-left" : "text-center"
+                availabilityResults.length > 0 ? "md:text-left" : "text-center"
               }`}
             >
               Find Ingredients
@@ -244,7 +395,7 @@ export default function SearchPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
               className={`text-muted-foreground mt-4 max-w-md ${
-                showResults ? "md:text-left" : "text-center"
+                availabilityResults.length > 0 ? "md:text-left" : "text-center"
               }`}
             >
               Enter a dish name to discover what goes into it - and where to
@@ -334,6 +485,19 @@ export default function SearchPage() {
                 </div>
               </motion.div>
             )}
+
+            {shoppingTrip.markets.length > 0 && (
+              <ShoppingTripPlanner
+                isOpen={shoppingTrip.isOpen}
+                markets={shoppingTrip.markets}
+                coverage={shoppingTrip.coverage}
+                total={shoppingTrip.total}
+                ingredientMap={shoppingTrip.ingredientMap}
+                onToggle={() =>
+                  setShoppingTrip((prev) => ({ ...prev, isOpen: !prev.isOpen }))
+                }
+              />
+            )}
           </div>
 
           {showSplit && (
@@ -345,19 +509,68 @@ export default function SearchPage() {
               transition={{ duration: 0.5 }}
             >
               <div className="md:sticky md:top-24 h-fit rounded-2xl shadow-sm backdrop-blur-md bg-card/80 border border-muted p-6 z-10">
-                <h2 className="text-xl font-semibold mb-6 text-primary">
-                  Nearby Markets
-                </h2>
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-xl font-semibold text-primary">
+                    Nearby Markets
+                  </h2>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="gap-1 text-sm"
+                      >
+                        <ArrowUpDown className="w-4 h-4" />
+                        Sort Markets
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-56">
+                      {[
+                        {
+                          value: "mostIngredients",
+                          label: "Most Ingredients First",
+                        },
+                        {
+                          value: "leastIngredients",
+                          label: "Least Ingredients First",
+                        },
+                      ].map((option) => (
+                        <DropdownMenuItem
+                          key={option.value}
+                          onClick={() => setMarketSort(option.value as any)}
+                          className="flex justify-between items-center"
+                        >
+                          {option.label}
+                          {marketSort === option.value && (
+                            <Check className="w-4 h-4 text-primary" />
+                          )}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+
                 <div className="space-y-6">
                   {[...availabilityResults]
                     .sort((a, b) => {
-                      const aCount = Object.values(a.availability).filter(
-                        Boolean
-                      ).length;
-                      const bCount = Object.values(b.availability).filter(
-                        Boolean
-                      ).length;
-                      return bCount - aCount;
+                      if (marketSort === "mostIngredients") {
+                        const aCount = Object.values(a.availability).filter(
+                          Boolean
+                        ).length;
+                        const bCount = Object.values(b.availability).filter(
+                          Boolean
+                        ).length;
+                        return bCount - aCount;
+                      } else if (marketSort === "leastIngredients") {
+                        const aCount = Object.values(a.availability).filter(
+                          Boolean
+                        ).length;
+                        const bCount = Object.values(b.availability).filter(
+                          Boolean
+                        ).length;
+                        return aCount - bCount;
+                      }
+                      return 0;
                     })
                     .map((result, i) => (
                       <FarmerCard
@@ -368,9 +581,7 @@ export default function SearchPage() {
                         seasonInfo={result.market.months}
                         userLocation={userLocation}
                         availability={result.availability}
-                        allIngredients={ingredients.filter(
-                          (ingredient) => !userHasIngredients[ingredient]
-                        )}
+                        allIngredients={unownedIngredients}
                         farmers={result.farmers}
                       />
                     ))}

@@ -77,41 +77,43 @@ export async function getProductsByName(name: string) {
     markets: groupedByMarket,
   };
 }export async function getIngredientAvailability(ingredients: string[]) {
+  // Updated: adding wildcards for partial matching.
   const startsWithFilters = ingredients
-    .map((ingredient) => `product.ilike.${ingredient}%`)
+    .map((ingredient) => `product.ilike.%${ingredient}%`)
     .join(",");
-
+    
   const { data, error } = await supabase
     .from("product_farmers_markets")
     .select("product, market, farmer")
     .or(startsWithFilters);
-
+  
   if (error) throw new Error(error.message);
-
+  
   const normalizeMarket = (market: string) => {
     if (market.includes("Westside")) return "Westside";
     if (market.includes("Downtown")) return "Downtown";
     if (market.includes("Live Oak")) return "Live Oak";
     return market;
   };
-
+  
   type MarketData = {
     market: string;
     availability: Record<string, boolean>;
     farmers: Set<string>;
   };
-
+  
   const marketMap: Record<string, MarketData> = {};
-
+  
   for (const { market, product, farmer } of data) {
-    const matchingIngredient = ingredients.find((ing) =>
-      product.toLowerCase().startsWith(ing.toLowerCase())
-    );
-
+    // Check if the product contains any of the desired ingredients
+    const matchingIngredient = ingredients.find((ing) => {
+      return product.toLowerCase().includes(ing.toLowerCase());
+    });
+    
     if (!matchingIngredient) continue;
-
+    
     const normalizedMarket = normalizeMarket(market);
-
+    
     if (!marketMap[normalizedMarket]) {
       marketMap[normalizedMarket] = {
         market: normalizedMarket,
@@ -119,11 +121,12 @@ export async function getProductsByName(name: string) {
         farmers: new Set(),
       };
     }
-
+    
     marketMap[normalizedMarket].availability[matchingIngredient] = true;
     marketMap[normalizedMarket].farmers.add(farmer);
   }
-
+  
+  // Ensure all ingredients are represented in the result, even if false.
   for (const market of Object.values(marketMap)) {
     for (const ingredient of ingredients) {
       if (!(ingredient in market.availability)) {
@@ -131,7 +134,7 @@ export async function getProductsByName(name: string) {
       }
     }
   }
-
+  
   return Object.values(marketMap).map((entry) => ({
     market: {
       name: entry.market,
