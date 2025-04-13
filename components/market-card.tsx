@@ -1,5 +1,10 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { MapPin, Info } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import FarmersPopup from "./ui/farmersPopup";
+import { getFarmerDetails } from "@/utils/supabase/client";
 
 type Props = {
   name: string;
@@ -29,7 +34,7 @@ async function getTravelTime(
   return data.travelTime;
 }
 
-export default function FarmerCard({
+export default function MarketCard({
   name,
   location,
   hours,
@@ -40,6 +45,9 @@ export default function FarmerCard({
   farmers,
 }: Props) {
   const [travelTime, setTravelTime] = useState<string>("");
+  const [isFarmersDialogOpen, setIsFarmersDialogOpen] = useState(false);
+  const [farmerDetails, setFarmerDetails] = useState<Record<string, any>>({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (location) {
@@ -51,12 +59,41 @@ export default function FarmerCard({
     (ingredient) => availability[ingredient.toLocaleLowerCase()]
   );
 
+  const handleOpenFarmersDialog = async () => {
+    setIsLoading(true);
+    try {
+      // Pass the farmers array to getFarmerDetails
+      const details = await getFarmerDetails(farmers);
+      setFarmerDetails(details);
+      
+      // Open the dialog after data is loaded
+      setIsFarmersDialogOpen(true);
+    } catch (error) {
+      console.error("Failed to fetch farmer details:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="border border-muted rounded-xl bg-card p-4 shadow-sm">
       {/* Market Header */}
-      <div className="flex items-center gap-2 text-primary font-semibold text-base">
-        <MapPin className="w-4 h-4" />
-        {name}
+      <div className="flex items-center justify-between text-primary font-semibold text-base">
+        <div className="flex items-center gap-2">
+          <MapPin className="w-4 h-4" />
+          {name}
+        </div>
+        
+        <div className="flex gap-2">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="h-7 px-3 text-xs"
+            onClick={handleOpenFarmersDialog}
+          >
+            {isLoading ? "Loading..." : "Farmers"}
+          </Button>
+        </div>
       </div>
 
       {/* Market Metadata */}
@@ -97,6 +134,14 @@ export default function FarmerCard({
           </div>
         </div>
       )}
+
+      {/* Farmers Popup */}
+      <FarmersPopup
+        isOpen={isFarmersDialogOpen}
+        onClose={() => setIsFarmersDialogOpen(false)}
+        farmers={farmerDetails}
+        marketName={name}
+      />
     </div>
   );
 }
