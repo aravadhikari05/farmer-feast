@@ -14,6 +14,10 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
+import { useState } from "react";
+import { createPortal } from "react-dom";
+
+
 
 type FarmerCardProps = {
   name: string;
@@ -34,6 +38,10 @@ export default function FarmerCard({
   about,
   products = [],
 }: FarmerCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+    const maxCharacters = 390; // Adjust this value as needed
+    
+    
 
   if (!email && !about && !website && !address) {
     return null;
@@ -41,6 +49,14 @@ export default function FarmerCard({
   
   // Only render HoverCard if bio is available
   const hasHoverContent = about && about.trim().length > 0;
+
+  const displayText = hasHoverContent
+  ? isExpanded
+    ? about
+    : about.length > maxCharacters
+      ? `${about.substring(0, maxCharacters)}...`
+      : about
+  : null;
   
   const card = (
     <Card className="w-[250px] h-[300px] flex flex-col overflow-hidden">
@@ -115,19 +131,31 @@ export default function FarmerCard({
         <HoverCardTrigger asChild>
           <div>{card}</div>
         </HoverCardTrigger>
-        <HoverCardContent 
-          side="left" 
-          align="start"
-          avoidCollisions={true}
-          className="w-64"
-        >
-          <div className="font-medium text-foreground mb-2">
-            About
-          </div>
-          <p className="text-sm text-muted-foreground">
-            {about}
-          </p>
-        </HoverCardContent>
+        {createPortal(
+          <HoverCardContent 
+            side="left" 
+            align="start"
+            className="w-64 overflow-y-auto"
+          >
+            <div className="font-medium text-foreground mb-2">
+              About
+            </div>
+ 
+            <p className="text-sm text-muted-foreground">
+              {displayText}
+              {about.length > maxCharacters && (
+              <button 
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="mt-2 text-primary font-medium hover:underline focus:outline-none"
+              >
+                {isExpanded ? "Show less" : "Read more"}
+              </button>
+            )}
+            </p>
+          </HoverCardContent>,
+          document.body
+        )}
+        
       </HoverCard>
     </div>
   );
