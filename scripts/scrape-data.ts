@@ -1,7 +1,6 @@
-import path from 'path';
+import path from "path";
 import puppeteer from "puppeteer";
-import fs from 'fs/promises';
-
+import fs from "fs/promises";
 
 async function scrapeVendors() {
   const browser = await puppeteer.launch({ headless: true });
@@ -42,68 +41,68 @@ async function scrapeVendors() {
 
     await page.goto(absoluteLink, { waitUntil: "domcontentloaded" });
 
-    const { description, markets, products, image_url } = await page.evaluate(() => {
-      const descResult: Record<string, string> = {};
-      const rows = document.querySelectorAll("tr");
-      rows.forEach((tr) => {
-        const tds = tr.querySelectorAll("td");
-        if (tds.length >= 2) {
-          const key = tds[0].textContent
-            ?.trim()
-            .replace(":", "")
-            .toLowerCase()
-            .replace(/\s+/g, "_");
-          const value = tds[1].textContent?.trim().replace(/\s+/g, " ");
-          if (key) descResult[key] = value || "";
-        }
-      });
-    
-      const sidebarSections = Array.from(
-        document.querySelectorAll(".vendor_products_sidebar")
-      );
-      const markets: string[] = [];
-      const products: string[] = [];
-    
-      sidebarSections.forEach((section) => {
-        const heading = section.querySelector("h3")?.textContent?.trim();
-        const links = Array.from(section.querySelectorAll("a")).map(
-          (a) => a.textContent?.trim() || ""
+    const { description, markets, products, image_url } = await page.evaluate(
+      () => {
+        const descResult: Record<string, string> = {};
+        const rows = document.querySelectorAll("tr");
+        rows.forEach((tr) => {
+          const tds = tr.querySelectorAll("td");
+          if (tds.length >= 2) {
+            const key = tds[0].textContent
+              ?.trim()
+              .replace(":", "")
+              .toLowerCase()
+              .replace(/\s+/g, "_");
+            const value = tds[1].textContent?.trim().replace(/\s+/g, " ");
+            if (key) descResult[key] = value || "";
+          }
+        });
+
+        const sidebarSections = Array.from(
+          document.querySelectorAll(".vendor_products_sidebar")
         );
-        if (heading === "Markets") {
-          markets.push(...links);
-        } else if (heading === "Products") {
-          products.push(...links);
-        }
-      });
-    
-      const imageEl = document.querySelector(".vendor_thumb img");
-      const image_url = imageEl?.getAttribute("src") || "";
-    
-      return { description: descResult, markets, products, image_url };
-    });
-    
+        const markets: string[] = [];
+        const products: string[] = [];
+
+        sidebarSections.forEach((section) => {
+          const heading = section.querySelector("h3")?.textContent?.trim();
+          const links = Array.from(section.querySelectorAll("a")).map(
+            (a) => a.textContent?.trim() || ""
+          );
+          if (heading === "Markets") {
+            markets.push(...links);
+          } else if (heading === "Products") {
+            products.push(...links.map((link) => link.toLocaleLowerCase()));
+          }
+        });
+
+        const imageEl = document.querySelector(".vendor_thumb img");
+        const image_url = imageEl?.getAttribute("src") || "";
+
+        return { description: descResult, markets, products, image_url };
+      }
+    );
 
     result[name] = {
       link: absoluteLink,
       description,
       markets,
       products,
-      image_url
+      image_url,
     };
   }
 
   await browser.close();
-  
-  // Save result to file 
+
+  // Save result to file
   //change
   const outputPath = path.join(__dirname, `vendor-data.json`);
-  
+
   try {
     await fs.writeFile(outputPath, JSON.stringify(result, null, 2));
     console.log(`Data successfully saved to ${outputPath}`);
-
   } catch (error) {
-    console.error('Error saving data to file:', error);
+    console.error("Error saving data to file:", error);
   }
 }
 

@@ -25,9 +25,9 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Apricots",
-      "Dried Fruit",
-      "Walnuts"
+      "apricots",
+      "dried fruit",
+      "walnuts"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1113.jpg"
   },
@@ -46,7 +46,7 @@
       "Downtown Santa Cruz"
     ],
     "products": [
-      "Honey"
+      "honey"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2013/03/Aptos-Apiary.jpg"
   },
@@ -93,7 +93,7 @@
       "Scotts Valley"
     ],
     "products": [
-      "Bread"
+      "bread"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/159.jpg"
   },
@@ -112,7 +112,7 @@
       "Scotts Valley"
     ],
     "products": [
-      "Olive Oil"
+      "olive oil"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2018/11/Big-Paw.jpg"
   },
@@ -131,7 +131,7 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Apples"
+      "apples"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/196.jpg"
   },
@@ -153,9 +153,9 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Bitters",
-      "Salves",
-      "Seeds",
+      "bitters",
+      "salves",
+      "seeds",
       "tinctures"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2016/12/Blossom-Farm.jpeg"
@@ -179,22 +179,22 @@
       "Downtown Santa Cruz"
     ],
     "products": [
-      "Beets",
-      "Broccoli",
-      "Cabbage",
-      "Carrots",
-      "Cauliflower",
-      "Cucumbers",
-      "Flowers",
-      "Green Onions",
-      "Herbs",
-      "Kale",
-      "Lettuce",
-      "Salad Greens",
-      "Spinach",
-      "Summer Squash",
-      "Swiss Chard",
-      "Winter Squash"
+      "beets",
+      "broccoli",
+      "cabbage",
+      "carrots",
+      "cauliflower",
+      "cucumbers",
+      "flowers",
+      "green onions",
+      "herbs",
+      "kale",
+      "lettuce",
+      "salad greens",
+      "spinach",
+      "summer squash",
+      "swiss chard",
+      "winter squash"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Screen-Shot-2024-01-30-at-10.24.10-AM-e1706639766699.png"
   },
@@ -212,21 +212,21 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Basil",
-      "Beans",
-      "Beets",
-      "Broccoli",
-      "Cabbage",
-      "Chard",
-      "Flowers",
-      "Kale",
-      "Peppers",
-      "Potatoes",
-      "Pumpkins",
-      "Strawberries",
-      "Summer Squash",
-      "Tomatoes",
-      "Winter Squash"
+      "basil",
+      "beans",
+      "beets",
+      "broccoli",
+      "cabbage",
+      "chard",
+      "flowers",
+      "kale",
+      "peppers",
+      "potatoes",
+      "pumpkins",
+      "strawberries",
+      "summer squash",
+      "tomatoes",
+      "winter squash"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2017/10/Website-Profile-Photo.jpg"
   },
@@ -251,18 +251,18 @@
       "Live Oak"
     ],
     "products": [
-      "Avocados",
-      "Cherimoyas",
-      "Feijoas",
-      "Grapefruit",
-      "Guavas",
-      "Kumquats",
-      "Lemons",
-      "Limes",
-      "Mandarins",
-      "Mangoes",
-      "Oranges",
-      "Pomelos"
+      "avocados",
+      "cherimoyas",
+      "feijoas",
+      "grapefruit",
+      "guavas",
+      "kumquats",
+      "lemons",
+      "limes",
+      "mandarins",
+      "mangoes",
+      "oranges",
+      "pomelos"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/197.jpg"
   },
@@ -284,32 +284,32 @@
       "Scotts Valley"
     ],
     "products": [
-      "Apples",
-      "Beans",
-      "Beets",
-      "Broccoli",
-      "Carrots",
-      "Cucumbers",
-      "Figs",
-      "Flowers",
-      "Garlic",
-      "Greens",
-      "Herbs",
-      "Lemons",
-      "Loquats",
-      "Onions",
-      "Oranges",
-      "Pears",
-      "Peppers",
-      "Persimmons",
-      "Plums",
-      "Potatoes",
-      "Pumpkins",
-      "Quince",
-      "Radishes",
-      "Summer Squash",
-      "Tomatoes",
-      "Winter Squash"
+      "apples",
+      "beans",
+      "beets",
+      "broccoli",
+      "carrots",
+      "cucumbers",
+      "figs",
+      "flowers",
+      "garlic",
+      "greens",
+      "herbs",
+      "lemons",
+      "loquats",
+      "onions",
+      "oranges",
+      "pears",
+      "peppers",
+      "persimmons",
+      "plums",
+      "potatoes",
+      "pumpkins",
+      "quince",
+      "radishes",
+      "summer squash",
+      "tomatoes",
+      "winter squash"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Casalegno-2.jpg"
   },
@@ -403,29 +403,29 @@
       "Live Oak/Eastside"
     ],
     "products": [
-      "Basil",
-      "Beets",
-      "Broccolini",
-      "Cabbage",
-      "Carrots",
-      "Cauliflower",
-      "Chard",
-      "Cilantro",
-      "Dandelion Greens",
-      "Green Beans",
-      "Kale",
-      "Leeks",
-      "Onions",
-      "Parsley",
-      "Radicchio",
-      "Radishes",
-      "Romaine Lettuce",
-      "Romanesco",
-      "Shallots",
-      "Shelling Beans",
-      "Strawberries",
-      "Tomatoes",
-      "Turnips"
+      "basil",
+      "beets",
+      "broccolini",
+      "cabbage",
+      "carrots",
+      "cauliflower",
+      "chard",
+      "cilantro",
+      "dandelion greens",
+      "green beans",
+      "kale",
+      "leeks",
+      "onions",
+      "parsley",
+      "radicchio",
+      "radishes",
+      "romaine lettuce",
+      "romanesco",
+      "shallots",
+      "shelling beans",
+      "strawberries",
+      "tomatoes",
+      "turnips"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/DirtyGirl.jpg"
   },
@@ -446,9 +446,9 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Aguas Frescas",
-      "Curtido",
-      "Pupusas"
+      "aguas frescas",
+      "curtido",
+      "pupusas"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Dos-Hermanos-1.jpg"
   },
@@ -482,8 +482,8 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Apples",
-      "Pears"
+      "apples",
+      "pears"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Epicenter.jpg"
   },
@@ -507,7 +507,7 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Flowers"
+      "flowers"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Flowers-at-the-Sea.jpg"
   },
@@ -531,9 +531,9 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Dates",
-      "Grapefruit",
-      "Oranges"
+      "dates",
+      "grapefruit",
+      "oranges"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/160.jpg"
   },
@@ -559,10 +559,10 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Chicken",
-      "Eggs",
-      "Pork",
-      "Sausage"
+      "chicken",
+      "eggs",
+      "pork",
+      "sausage"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Fogline-2016.jpg"
   },
@@ -587,31 +587,31 @@
       "Downtown Santa Cruz"
     ],
     "products": [
-      "Apples",
-      "Arugula",
-      "Asian Greens",
-      "Avocados",
-      "Chard",
-      "Cilantro",
-      "Collards",
-      "Cress",
-      "Dandelion Flowers",
-      "Greens",
-      "Kale",
-      "Kiwi",
-      "Mache",
-      "Miners Lettuce",
-      "Mint",
-      "Nettles",
-      "Oregano",
-      "Parsley",
-      "Pears",
-      "Persimmons",
-      "Purslane",
-      "Rosemary",
-      "Sorrel",
-      "Spinach",
-      "Thyme"
+      "apples",
+      "arugula",
+      "asian greens",
+      "avocados",
+      "chard",
+      "cilantro",
+      "collards",
+      "cress",
+      "dandelion flowers",
+      "greens",
+      "kale",
+      "kiwi",
+      "mache",
+      "miners lettuce",
+      "mint",
+      "nettles",
+      "oregano",
+      "parsley",
+      "pears",
+      "persimmons",
+      "purslane",
+      "rosemary",
+      "sorrel",
+      "spinach",
+      "thyme"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1111.jpg"
   },
@@ -630,7 +630,7 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Beer"
+      "beer"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/fruition.jpg"
   },
@@ -650,10 +650,10 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Dumplings",
-      "Gyoza",
-      "Pancakes",
-      "Ramen"
+      "dumplings",
+      "gyoza",
+      "pancakes",
+      "ramen"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Full-Steam-Dumpling-hands.jpg"
   },
@@ -694,7 +694,7 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Garden Starts"
+      "garden starts"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/169.jpg"
   },
@@ -716,14 +716,14 @@
       "Scotts Valley"
     ],
     "products": [
-      "Greens",
-      "Honey",
-      "Onions",
-      "Peppers",
-      "Shallots",
-      "Squash",
-      "Strawberries",
-      "Tomatoes"
+      "greens",
+      "honey",
+      "onions",
+      "peppers",
+      "shallots",
+      "squash",
+      "strawberries",
+      "tomatoes"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Groundswell.jpg"
   },
@@ -767,11 +767,11 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Black Garlic",
-      "Koji Drinks",
-      "Koji Soy Sauce",
-      "Miso",
-      "Quick Miso"
+      "black garlic",
+      "koji drinks",
+      "koji soy sauce",
+      "miso",
+      "quick miso"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Hakouya.jpg"
   },
@@ -800,42 +800,42 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Arugula",
-      "Avocados",
-      "Basil",
-      "Beets",
-      "Braising Mix",
-      "Broccoli",
-      "Broccoli Raab",
-      "Carrots",
-      "Chard",
-      "Chestnuts",
-      "Cilantro",
-      "Cucumbers",
-      "Dill",
-      "Dry farmed tomatoes",
-      "Edible Flowers",
-      "Fava Beans",
-      "Fennel",
-      "Heirloom",
-      "Kale",
-      "Leeks",
-      "Lettuce",
-      "Melons",
-      "Peppers",
-      "Potatoes",
-      "Radishes",
-      "Salad Mix",
-      "Spinach",
-      "Spring Onions",
-      "Squash Blossoms",
-      "Sugar Snap Peas",
-      "Summer Squash",
-      "Tat-soi",
-      "Tomatoes",
-      "Watercress",
-      "Watermelons",
-      "Winter Squash"
+      "arugula",
+      "avocados",
+      "basil",
+      "beets",
+      "braising mix",
+      "broccoli",
+      "broccoli raab",
+      "carrots",
+      "chard",
+      "chestnuts",
+      "cilantro",
+      "cucumbers",
+      "dill",
+      "dry farmed tomatoes",
+      "edible flowers",
+      "fava beans",
+      "fennel",
+      "heirloom",
+      "kale",
+      "leeks",
+      "lettuce",
+      "melons",
+      "peppers",
+      "potatoes",
+      "radishes",
+      "salad mix",
+      "spinach",
+      "spring onions",
+      "squash blossoms",
+      "sugar snap peas",
+      "summer squash",
+      "tat-soi",
+      "tomatoes",
+      "watercress",
+      "watermelons",
+      "winter squash"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Happy-Boy-Profile.jpg"
   },
@@ -854,7 +854,7 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Figs"
+      "figs"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2017/10/Website-Profile-Photo-1.jpg"
   },
@@ -903,9 +903,9 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Cannoli",
-      "Italian Cookies",
-      "Tiramisu"
+      "cannoli",
+      "italian cookies",
+      "tiramisu"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/IMG_2302-2-e1709243528519.jpg"
   },
@@ -973,14 +973,14 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Apricots",
-      "Apriums",
-      "Asian Pears",
-      "Cherries",
-      "Nectarines",
-      "Peaches",
-      "Plums",
-      "Pluots"
+      "apricots",
+      "apriums",
+      "asian pears",
+      "cherries",
+      "nectarines",
+      "peaches",
+      "plums",
+      "pluots"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1127.jpg"
   },
@@ -999,15 +999,15 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Apricots",
-      "Cherries",
-      "Grapes",
-      "Leeks",
-      "Peaches",
-      "Pears",
-      "Persimmons",
-      "Plums",
-      "Pluots"
+      "apricots",
+      "cherries",
+      "grapes",
+      "leeks",
+      "peaches",
+      "pears",
+      "persimmons",
+      "plums",
+      "pluots"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2017/11/KENS-TOP-KNOTCH.jpg"
   },
@@ -1050,7 +1050,7 @@
       "Scotts Valley"
     ],
     "products": [
-      "Flowers"
+      "flowers"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Laurel-Canyon.jpg"
   },
@@ -1076,54 +1076,54 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Apples",
-      "Apricots",
-      "Arugula",
-      "Asian Greens",
-      "Asian Pears",
-      "Beets",
-      "Blackberries",
-      "Broccoli",
-      "Brussels Sprouts",
-      "Cabbage",
-      "Carrots",
-      "Cauliflower",
-      "Collards",
-      "Cucumbers",
-      "Eggplant",
-      "Eggs",
-      "Fresh Herbs",
-      "Garlic",
-      "Grapes",
-      "Green Beans",
-      "Green Onions",
-      "Hot Peppers",
-      "Kale",
-      "Kohlrabi",
-      "Leeks",
-      "Lettuce",
-      "Melons",
-      "Mustard Greens",
-      "Onions",
-      "Pears",
-      "Peas",
-      "Pineapple Guavas",
-      "Plums",
-      "Potatoes",
-      "Pumpkins",
-      "Radish",
-      "Raspberries",
-      "Root Crops",
-      "Rutabagas",
-      "Spinach",
-      "Strawberries",
-      "Summer Squash",
-      "Sun Chokes",
-      "Sweet Peppers",
-      "Swiss Chard",
-      "Tomatoes",
-      "Turnips",
-      "Winter Squash"
+      "apples",
+      "apricots",
+      "arugula",
+      "asian greens",
+      "asian pears",
+      "beets",
+      "blackberries",
+      "broccoli",
+      "brussels sprouts",
+      "cabbage",
+      "carrots",
+      "cauliflower",
+      "collards",
+      "cucumbers",
+      "eggplant",
+      "eggs",
+      "fresh herbs",
+      "garlic",
+      "grapes",
+      "green beans",
+      "green onions",
+      "hot peppers",
+      "kale",
+      "kohlrabi",
+      "leeks",
+      "lettuce",
+      "melons",
+      "mustard greens",
+      "onions",
+      "pears",
+      "peas",
+      "pineapple guavas",
+      "plums",
+      "potatoes",
+      "pumpkins",
+      "radish",
+      "raspberries",
+      "root crops",
+      "rutabagas",
+      "spinach",
+      "strawberries",
+      "summer squash",
+      "sun chokes",
+      "sweet peppers",
+      "swiss chard",
+      "tomatoes",
+      "turnips",
+      "winter squash"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/LIVE-EARTH-FARM-e1443216016321.jpg"
   },
@@ -1147,15 +1147,15 @@
       "Downtown Santa Cruz"
     ],
     "products": [
-      "Apples",
-      "Broccoli",
-      "Dry farmed tomatoes",
-      "Flowers",
-      "Onions",
-      "Peppers",
-      "Shallots",
-      "Sunflowers",
-      "Zucchini"
+      "apples",
+      "broccoli",
+      "dry farmed tomatoes",
+      "flowers",
+      "onions",
+      "peppers",
+      "shallots",
+      "sunflowers",
+      "zucchini"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Molino-Creek-Profile.jpg"
   },
@@ -1176,26 +1176,26 @@
       "Downtown Santa Cruz"
     ],
     "products": [
-      "Apples",
-      "Apricots",
-      "Blackberries",
-      "Blueberries",
-      "Cucumbers",
-      "Eggs",
-      "Flowers",
-      "Green Beans",
-      "Herbs",
-      "Hot Peppers",
-      "Lemons",
-      "Persimmons",
-      "Potatoes",
-      "Pumpkins",
-      "Raspberries",
-      "Summer Squash",
-      "Sweet Corn",
-      "Sweet Peppers",
-      "Tomatoes",
-      "Winter Squash"
+      "apples",
+      "apricots",
+      "blackberries",
+      "blueberries",
+      "cucumbers",
+      "eggs",
+      "flowers",
+      "green beans",
+      "herbs",
+      "hot peppers",
+      "lemons",
+      "persimmons",
+      "potatoes",
+      "pumpkins",
+      "raspberries",
+      "summer squash",
+      "sweet corn",
+      "sweet peppers",
+      "tomatoes",
+      "winter squash"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/IMG_1952-e1443215836512.jpg"
   },
@@ -1232,10 +1232,10 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Microgreens",
-      "Mushrooms",
-      "Sprouted Beans",
-      "Wheat Grass"
+      "microgreens",
+      "mushrooms",
+      "sprouted beans",
+      "wheat grass"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1184.jpg"
   },
@@ -1253,11 +1253,11 @@
       "Felton"
     ],
     "products": [
-      "Beautiful Plants",
+      "beautiful plants",
       "drought-tolerant plants",
-      "Edibles Plants",
-      "Medicinal Plants",
-      "Native Plants"
+      "edibles plants",
+      "medicinal plants",
+      "native plants"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2018/02/Pacific-Rare-Plants-Profile-Photo.jpg"
   },
@@ -1280,7 +1280,7 @@
       "Felton"
     ],
     "products": [
-      "Ice Cream"
+      "ice cream"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2013/11/126.jpg"
   },
@@ -1325,37 +1325,37 @@
       "Downtown Santa Cruz"
     ],
     "products": [
-      "Apple Juice",
-      "Apples",
-      "Basil",
-      "Beets",
-      "Broccoli",
-      "Bunched Carrots",
-      "Cauliflower",
-      "Celery",
-      "Cilantro",
-      "Cucumbers",
-      "Eggplant",
-      "Fennel",
-      "Garlic",
-      "Green Cabbage",
-      "Leeks",
-      "Lettuce",
-      "Melons",
-      "Okra",
-      "Onions",
-      "Pears",
-      "Peppers",
-      "Potatoes",
-      "Red Cabbage",
-      "Red Chard",
-      "Shallots",
-      "Strawberries",
-      "Sugar Pie Pumpkin",
-      "Tomatoes",
-      "Watermelons",
-      "Winter Squash",
-      "Zucchini"
+      "apple juice",
+      "apples",
+      "basil",
+      "beets",
+      "broccoli",
+      "bunched carrots",
+      "cauliflower",
+      "celery",
+      "cilantro",
+      "cucumbers",
+      "eggplant",
+      "fennel",
+      "garlic",
+      "green cabbage",
+      "leeks",
+      "lettuce",
+      "melons",
+      "okra",
+      "onions",
+      "pears",
+      "peppers",
+      "potatoes",
+      "red cabbage",
+      "red chard",
+      "shallots",
+      "strawberries",
+      "sugar pie pumpkin",
+      "tomatoes",
+      "watermelons",
+      "winter squash",
+      "zucchini"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1176.jpg"
   },
@@ -1378,13 +1378,13 @@
     },
     "markets": [],
     "products": [
-      "Apples",
-      "Berries",
-      "Green Beans",
-      "Pears",
-      "Persimmons",
-      "Plums",
-      "Winter Squash"
+      "apples",
+      "berries",
+      "green beans",
+      "pears",
+      "persimmons",
+      "plums",
+      "winter squash"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2013/02/Prevedelli.jpg"
   },
@@ -1408,15 +1408,15 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Artichokes",
-      "Brussels Sprouts",
-      "English Peas",
-      "Leeks",
-      "Pumpkins",
-      "Romano beans",
-      "Snap Peas",
-      "Snow Peas",
-      "Squash"
+      "artichokes",
+      "brussels sprouts",
+      "english peas",
+      "leeks",
+      "pumpkins",
+      "romano beans",
+      "snap peas",
+      "snow peas",
+      "squash"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Rodoni-e1443215633480.jpg"
   },
@@ -1475,7 +1475,7 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Balsamic Vinegar"
+      "balsamic vinegar"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2023/11/SC-BALSAMICS.jpg"
   },
@@ -1495,11 +1495,11 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Dried Goods",
-      "Greens",
-      "Hoshigaki",
-      "Kiwi",
-      "Preserves"
+      "dried goods",
+      "greens",
+      "hoshigaki",
+      "kiwi",
+      "preserves"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2025/02/Screen-Shot-2025-02-07-at-10.49.44-AM.png"
   },
@@ -1521,20 +1521,20 @@
       "Felton"
     ],
     "products": [
-      "Almonds",
-      "Apricots",
-      "Citrus Fruit",
-      "Clementines",
-      "Dried Fruit",
-      "Grapefruit",
-      "Grapes",
-      "Mandarins",
-      "Oranges",
-      "Raisins",
-      "Sweet Potatoes",
-      "Tangelos",
-      "Tangerines",
-      "Yams"
+      "almonds",
+      "apricots",
+      "citrus fruit",
+      "clementines",
+      "dried fruit",
+      "grapefruit",
+      "grapes",
+      "mandarins",
+      "oranges",
+      "raisins",
+      "sweet potatoes",
+      "tangelos",
+      "tangerines",
+      "yams"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1134.jpg"
   },
@@ -1556,7 +1556,7 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Raw Milk"
+      "raw milk"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2013/12/18.jpg"
   },
@@ -1574,14 +1574,14 @@
       "Live Oak/Eastside"
     ],
     "products": [
-      "Basil",
-      "Blueberries",
-      "Flowers",
-      "Greens",
-      "Herbs",
-      "Lettuce",
-      "Squash",
-      "Sweet Potatoes"
+      "basil",
+      "blueberries",
+      "flowers",
+      "greens",
+      "herbs",
+      "lettuce",
+      "squash",
+      "sweet potatoes"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2020/02/Sea-to-Sky-Farm.jpg"
   },
@@ -1605,10 +1605,10 @@
       "Live Oak/Eastside"
     ],
     "products": [
-      "Avocados",
-      "Blueberries",
-      "Herbs",
-      "Kale"
+      "avocados",
+      "blueberries",
+      "herbs",
+      "kale"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2016/05/Serendipity-Farm.jpg"
   },
@@ -1634,10 +1634,10 @@
       "Scotts Valley"
     ],
     "products": [
-      "Almonds",
-      "Flavored Almonds",
-      "Persimmons",
-      "Stone fruit"
+      "almonds",
+      "flavored almonds",
+      "persimmons",
+      "stone fruit"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/152.jpg"
   },
@@ -1655,7 +1655,7 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Mushrooms"
+      "mushrooms"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/mushrooms.jpg"
   },
@@ -1673,8 +1673,8 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Gluten Free Baked Goods",
-      "Gluten Free Bread"
+      "gluten free baked goods",
+      "gluten free bread"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2025/01/Screen-Shot-2025-01-30-at-11.32.05-AM.png"
   },
@@ -1713,14 +1713,14 @@
       "Live Oak/Eastside"
     ],
     "products": [
-      "Grapefruit",
-      "Grapes",
-      "Lemons",
-      "Nectarines",
-      "Peaches",
-      "Plums",
-      "Pluots",
-      "Pomelos"
+      "grapefruit",
+      "grapes",
+      "lemons",
+      "nectarines",
+      "peaches",
+      "plums",
+      "pluots",
+      "pomelos"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2021/02/Tory-1.jpg"
   },
@@ -1743,8 +1743,8 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Blueberries",
-      "Raisins"
+      "blueberries",
+      "raisins"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1109.jpg"
   },
@@ -1770,22 +1770,22 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Apricots",
-      "Cherries",
-      "Feijoas",
-      "Grapefruit",
-      "Grapes",
-      "Guavas",
-      "Jujubes",
-      "Kiwi",
-      "Lemons Nectarines",
-      "Oranges",
-      "Peaches",
-      "Persimmons",
-      "Plums",
-      "Pluots",
+      "apricots",
+      "cherries",
+      "feijoas",
+      "grapefruit",
+      "grapes",
+      "guavas",
+      "jujubes",
+      "kiwi",
+      "lemons nectarines",
+      "oranges",
+      "peaches",
+      "persimmons",
+      "plums",
+      "pluots",
       "pomegranates",
-      "Pomelos"
+      "pomelos"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/1179.jpg"
   },
@@ -1808,8 +1808,8 @@
       "Scotts Valley"
     ],
     "products": [
-      "Jams",
-      "Mustards"
+      "jams",
+      "mustards"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2018/12/Twins-Kitchen.jpg"
   },
@@ -1831,10 +1831,10 @@
       "Westside Santa Cruz"
     ],
     "products": [
-      "Blackberries",
-      "Blueberries",
-      "Raspberries",
-      "Strawberries"
+      "blackberries",
+      "blueberries",
+      "raspberries",
+      "strawberries"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Vasquez.jpg"
   },
@@ -1877,22 +1877,22 @@
       "Live Oak/Eastside"
     ],
     "products": [
-      "Beets",
-      "Braising Mix",
-      "Broccoli",
-      "Cabbage",
-      "Carrots",
-      "Chard",
-      "Cilantro",
-      "Collards",
-      "Kale",
-      "Leeks",
-      "Potatoes",
-      "Spinach",
-      "Squash",
-      "Strawberries",
-      "Sugar Snap Peas",
-      "Winter Squash"
+      "beets",
+      "braising mix",
+      "broccoli",
+      "cabbage",
+      "carrots",
+      "chard",
+      "cilantro",
+      "collards",
+      "kale",
+      "leeks",
+      "potatoes",
+      "spinach",
+      "squash",
+      "strawberries",
+      "sugar snap peas",
+      "winter squash"
     ],
     "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/windmill_farm.jpg"
   }
