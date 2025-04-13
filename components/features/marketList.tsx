@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState} from "react";
 import MarketCard from "../ui/marketCard";
 import marketData from "@/market-info.json";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 
 export default function MarketCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0); // Track animation direction: -1 for left, 1 for right
   const markets = marketData.markets;
   const { scrollY } = useScroll();
 
@@ -15,18 +16,22 @@ export default function MarketCarousel() {
   const bgYSmooth = useSpring(bgY, { damping: 20, stiffness: 100 });
   
   const goToPrevious = () => {
+    setDirection(-1); // Going left
     const isFirstMarket = currentIndex === 0;
     const newIndex = isFirstMarket ? markets.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
   };
   
   const goToNext = () => {
+    setDirection(1); // Going right
     const isLastMarket = currentIndex === markets.length - 1;
     const newIndex = isLastMarket ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
 
   const goToSlide = (slideIndex: number) => {
+    // Set direction based on index comparison
+    setDirection(slideIndex > currentIndex ? 1 : -1);
     setCurrentIndex(slideIndex);
   };
 
@@ -43,7 +48,7 @@ export default function MarketCarousel() {
 
       <div className="relative z-10 flex items-center justify-center w-full min-h-[calc(100vh)]">
         <div className="relative w-full px-4 overflow-visible">
-          {/* Navigation Arrows - OUTSIDE the card container for better visibility */}
+          {/* Navigation Arrows */}
           <div className="absolute top-1/2 -translate-y-1/2 -left-4 sm:-left-6 md:-left-8 lg:-left-12 z-50">
             <button 
               onClick={goToPrevious}
@@ -64,25 +69,42 @@ export default function MarketCarousel() {
             </button>
           </div>
 
-          <div className="max-w-5xl mx-auto relative">
-            <MarketCard
-              key={currentMarket.name}
-              name={currentMarket.name}
-              image_url={currentMarket.image_url}
-              location={currentMarket.location}
-              time={currentMarket.time}
-              months={currentMarket.months}
-              features={currentMarket.features}
-              about={currentMarket.about}
-            />
-            
+          <div className="max-w-5xl mx-auto relative min-h-[500px] flex items-center justify-center overflow-hidden">
+            <AnimatePresence custom={direction} mode="wait">
+                <motion.div
+                key={currentMarket.name}
+                custom={direction}
+                initial={{
+                  opacity: 0,
+                  x: direction * 50 // Moves in from right or left based on direction
+                }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{
+                  opacity: 0,
+                  x: direction * -50 // Exits to right or left based on direction
+                }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="w-full"
+                >
+                <MarketCard
+                  name={currentMarket.name}
+                  image_url={currentMarket.image_url}
+                  location={currentMarket.location}
+                  time={currentMarket.time}
+                  months={currentMarket.months}
+                  features={currentMarket.features}
+                  about={currentMarket.about}
+                />
+                </motion.div>
+            </AnimatePresence>
+
             {/* Dots navigation */}
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-2 mt-6 absolute bottom-4 left-0 right-0">
               {markets.map((_, marketIndex) => (
                 <button
                   key={marketIndex}
                   onClick={() => goToSlide(marketIndex)}
-                  className={`w-3 h-3 rounded-full ${
+                  className={`w-3 h-3 rounded-full transition-colors ${
                     currentIndex === marketIndex ? "bg-primary" : "bg-gray-300"
                   }`}
                   aria-label={`Go to market ${marketIndex + 1}`}
