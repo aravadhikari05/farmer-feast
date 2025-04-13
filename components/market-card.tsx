@@ -101,10 +101,7 @@ export default function MarketCard({
     <div className="border border-muted rounded-xl bg-card p-4 shadow-sm">
       {/* Market Header */}
       <div className="flex items-center justify-between text-primary font-semibold text-base">
-        <div className="flex items-center gap-2">
-          <MapPin className="w-4 h-4" />
-          {name}
-        </div>
+        <div className="flex items-center gap-2">{name}</div>
 
         <div className="flex gap-2">
           <Button
@@ -121,9 +118,9 @@ export default function MarketCard({
       {/* Market Metadata */}
       <div className="text-sm text-muted-foreground space-y-1 mb-4">
         {location && (
-          <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4" />
-            <span>{location}</span>
+          <div className="flex items-start gap-2">
+            <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+            <div className="text-sm">{location}</div>
           </div>
         )}
         {hours && (

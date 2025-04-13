@@ -88,9 +88,9 @@ export function ShoppingTripPlanner({
 
                       <div className="mt-1 space-y-1 text-sm text-muted-foreground">
                         {market.location && (
-                          <div className="flex items-center gap-2">
-                            <MapPin className="w-4 h-4" />
-                            <span>{market.location}</span>
+                          <div className="flex items-start gap-2">
+                            <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+                            <div className="text-sm">{market.location}</div>
                           </div>
                         )}
                         {market.hours && (
@@ -136,33 +136,33 @@ export function ShoppingTripPlanner({
             </div>
 
             {notFound && (
-  <div className="mt-4 p-4 border border-secondary bg-secondary/10 rounded-lg">
-    <div className="font-medium text-secondary-foreground mb-1">
-      Missing Ingredients ({missingCount})
-    </div>
-    <div className="text-sm text-secondary-foreground/90">
-      We couldn't find the following ingredients at any of the markets:
-      <div className="flex flex-wrap gap-2 mt-2">
-        {markets[0].allIngredients
-          .filter(
-            (ingredient: string) =>
-              !Object.keys(ingredientMap).includes(
-                ingredient.toLowerCase()
-              )
-          )
-          .map((ingredient: string, i: number) => (
-            <span
-              key={i}
-              className="px-2 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-xs"
-            >
-              {ingredient}
-            </span>
-          ))}
-      </div>
-    </div>
-  </div>
-)}
-
+              <div className="mt-4 p-4 border border-secondary bg-secondary/10 rounded-lg">
+                <div className="font-medium text-secondary-foreground mb-1">
+                  Missing Ingredients ({missingCount})
+                </div>
+                <div className="text-sm text-secondary-foreground/90">
+                  We couldn't find the following ingredients at any of the
+                  markets:
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {markets[0].allIngredients
+                      .filter(
+                        (ingredient: string) =>
+                          !Object.keys(ingredientMap).includes(
+                            ingredient.toLowerCase()
+                          )
+                      )
+                      .map((ingredient: string, i: number) => (
+                        <span
+                          key={i}
+                          className="px-2 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-xs"
+                        >
+                          {ingredient}
+                        </span>
+                      ))}
+                  </div>
+                </div>
+              </div>
+            )}
 
             <div className="mt-6">
               <h4 className="text-sm font-medium text-primary mb-3">
