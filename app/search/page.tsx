@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Search, MapPin } from "lucide-react";
+import { Search, ArrowRight, ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
+import { Checkbox } from "@/components/ui/checkbox";
+
 
 const dishes = [
   "Pasta Primavera",
@@ -22,7 +24,6 @@ export default function SearchPage() {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const showResults = ingredients.length > 0;
 
-  // Typing animation
   useEffect(() => {
     const fullText = `Try '${dishes[index]}'`;
     if (hasInteracted) {
@@ -93,7 +94,6 @@ export default function SearchPage() {
         paddingTop: showResults ? "6rem" : "0",
       }}
     >
-      {/* Title & Subtitle */}
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -113,7 +113,6 @@ export default function SearchPage() {
         the freshest ingredients.
       </motion.p>
 
-      {/* Search Bar */}
       <motion.form
         onSubmit={handleSearch}
         initial={{ opacity: 0, y: 20 }}
@@ -145,7 +144,6 @@ export default function SearchPage() {
         </div>
       </motion.form>
 
-      {/* Ingredients */}
       {ingredients.length > 0 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -168,5 +166,46 @@ export default function SearchPage() {
         </motion.div>
       )}
     </motion.div>
+          <h2 className="text-xl font-semibold text-primary mb-2">
+            Ingredients
+          </h2>
+          <p className="text-sm font-light text-muted-foreground mb-4">
+            Select what you already have:
+          </p>
+
+          {/* Ingredient List */}
+          <div className="flex flex-col gap-2 mb-2">
+            {ingredients.map((item, i) => {
+              const isLast = i === ingredients.length - 1;
+              return (
+                <div
+                  key={i}
+                  className="flex items-center justify-between gap-2"
+                >
+                  <div className="flex items-center space-x-2">
+                    <Checkbox id={`ingredient-${i}`} />
+                    <label
+                      htmlFor={`ingredient-${i}`}
+                      className="text-sm text-muted-foreground"
+                    >
+                      {item}
+                    </label>
+                  </div>
+                  {isLast && (
+                    <button
+                      type="submit"
+                      className="ml-4 -mt-3 px-3 py-2 bg-primary text-primary-foreground text-xs font-medium hover:bg-primary/90 transition rounded-full"
+                      disabled={loading}
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
+      )}
+    </div>
   );
 }

@@ -14,7 +14,22 @@ export async function POST(req: NextRequest) {
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
     const result = await model.generateContent(
-      `List the ingredients needed to make ${mealName}. Only list ingredients, no intro or instructions. Only use lowercase, no plural words, and list only whole ingredients, nothing such as 'marinara sauce.' Name items as they would be sold in a farmer's market. Use commas, not newlines. Do not list unnecessary adjectives in front of items, such as 'free-range'. `
+      ` List the ingredients needed to make ${mealName}.
+        If the meal name appears to be a single ingredient itself (e.g., "tomato"), return just that ingredient.
+        Do not include introductions, instructions, formatting notes, or extra commentary.
+
+        Follow these formatting rules:
+        - Use only lowercase
+        - Use singular forms (no plurals)
+        - Only list whole, raw ingredients (e.g., "tomato" instead of "marinara sauce")
+        - Avoid brand names or compound items (e.g., no "hot sauce" or "soy milk")
+        - Name items as they'd be sold at a farmers market
+        - Avoid toppings, garnishes, or sides unless central to the dish
+        - Avoid descriptive adjectives (e.g., no "fresh", "free-range")
+        - Separate items using **commas only**, no newlines
+
+        Be thorough. If needed, search multiple recipe variations to infer a complete ingredient list.
+        Return only the final list. `
     );
 
     const response = result.response;
