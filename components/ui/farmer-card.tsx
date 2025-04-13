@@ -135,13 +135,13 @@ export default function FarmerCard({
           <HoverCardContent 
             side="left" 
             align="start"
-            className="w-64 overflow-y-auto"
+            className="w-64 overflow-y-auto bg-popover"
           >
-            <div className="font-medium text-foreground mb-2">
+            <div className="font-medium text-primary mb-2">
               About
             </div>
  
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground font-light">
               {displayText}
               {about.length > maxCharacters && (
               <button 

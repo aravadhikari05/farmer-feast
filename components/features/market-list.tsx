@@ -2,7 +2,7 @@
 
 import { useState} from "react";
 import MarketCard from "../ui/market-card";
-import marketData from "@/market-info.json";
+import marketData from "@/scripts/market-info.json";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 
