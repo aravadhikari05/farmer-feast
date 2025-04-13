@@ -15,6 +15,7 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { merriweather } from "@/components/header";
 type Market = {
   market: {
     name: string;
@@ -285,7 +286,7 @@ export default function SearchPage() {
         (ingredient) => !userHasIngredients[ingredient]
       );
       setUnownedIngredients(ingredientsToCheck);
-      console.log(ingredientsToCheck)
+      console.log(ingredientsToCheck);
 
       const results = await getIngredientAvailability(
         ingredientsToCheck.map((ingredient) => ingredient.toLowerCase())
@@ -440,7 +441,9 @@ export default function SearchPage() {
                 transition={{ duration: 0.4, delay: 0.3 }}
                 className="mt-12 w-full max-w-2xl bg-card border border-muted rounded-2xl shadow-sm p-6"
               >
-                <h2 className="text-xl font-semibold text-primary mb-2">
+                <h2
+                  className={`${merriweather.className} text-xl font-semibold text-primary mb-2`}
+                >
                   Ingredients
                 </h2>
                 <p className="text-sm font-light text-muted-foreground mb-4">
@@ -487,16 +490,21 @@ export default function SearchPage() {
             )}
 
             {shoppingTrip.markets.length > 0 && (
-              <ShoppingTripPlanner
-                isOpen={shoppingTrip.isOpen}
-                markets={shoppingTrip.markets}
-                coverage={shoppingTrip.coverage}
-                total={shoppingTrip.total}
-                ingredientMap={shoppingTrip.ingredientMap}
-                onToggle={() =>
-                  setShoppingTrip((prev) => ({ ...prev, isOpen: !prev.isOpen }))
-                }
-              />
+              <div className="md:sticky md:top-14 h-fit">
+                <ShoppingTripPlanner
+                  isOpen={shoppingTrip.isOpen}
+                  markets={shoppingTrip.markets}
+                  coverage={shoppingTrip.coverage}
+                  total={shoppingTrip.total}
+                  ingredientMap={shoppingTrip.ingredientMap}
+                  onToggle={() =>
+                    setShoppingTrip((prev) => ({
+                      ...prev,
+                      isOpen: !prev.isOpen,
+                    }))
+                  }
+                />
+              </div>
             )}
           </div>
 

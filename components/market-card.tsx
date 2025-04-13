@@ -92,7 +92,6 @@ export default function MarketCard({
       return aAvail === bAvail ? 0 : aAvail ? -1 : 1;
     }
 
-    // Default: available first, then alphabetical
     if (aAvail && !bAvail) return -1;
     if (!aAvail && bAvail) return 1;
     return a.localeCompare(b);
@@ -141,7 +140,7 @@ export default function MarketCard({
         )}
         {travelTime && (
           <div className="flex items-center gap-2">
-            <span>🚗 {travelTime} drive</span>
+            <span className="text-muted-foreground">🚗 {travelTime} drive</span>
           </div>
         )}
       </div>
@@ -186,14 +185,18 @@ export default function MarketCard({
 
           <div className="space-y-2 max-h-40 overflow-y-auto pr-1 custom-scrollbar">
             {sortedIngredients.map((ingredient, idx) => {
-              const isAvailable = availability[ingredient.toLowerCase()];
+              const isAvailable = Object.keys(availability).some(
+                (key) =>
+                  key.includes(ingredient.toLowerCase()) && availability[key]
+              );
+
               return (
                 <div
                   key={idx}
                   className={`flex items-center justify-between text-sm rounded-md px-3 py-1.5 border ${
                     isAvailable
-                      ? "bg-green-50 border-green-200 text-green-800"
-                      : "bg-red-50 border-red-200 text-red-700"
+                      ? "bg-success/10 border-success text-success"
+                      : "bg-muted border-muted text-muted-foreground"
                   }`}
                 >
                   <span>{ingredient}</span>
@@ -207,7 +210,6 @@ export default function MarketCard({
         </div>
       )}
 
-      {/* Farmers Popup */}
       <FarmersPopup
         isOpen={isFarmersDialogOpen}
         onClose={() => setIsFarmersDialogOpen(false)}

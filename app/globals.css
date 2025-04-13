@@ -5,8 +5,8 @@
 @layer base {
   :root {
     /* Light Mode */
-    --background: 42 35% 96%;            /* Soft parchment */
-    --foreground: 25 25% 20%;            /* Warm coffee text */
+    --background: 42 35% 96%; /* Soft parchment */
+    --foreground: 25 25% 20%; /* Warm coffee text */
 
     --card: 42 35% 96%;
     --card-foreground: 25 25% 20%;
@@ -14,22 +14,25 @@
     --popover: 42 35% 96%;
     --popover-foreground: 25 25% 20%;
 
-    --primary: 25 45% 35%;               /* Deep cedarwood brown */
-    --primary-foreground: 42 100% 95%;   /* Creamy highlight */
+    --primary: 25 45% 35%; /* Deep cedarwood brown */
+    --primary-foreground: 42 100% 95%; /* Creamy highlight */
 
-    --secondary: 35 30% 85%;             /* Gentle sand tone */
-    --secondary-foreground: 25 25% 25%;  /* Balanced contrast */
+    --secondary: 35 30% 85%; /* Gentle sand tone */
+    --secondary-foreground: 25 25% 25%; /* Balanced contrast */
 
-    --muted: 30 25% 90%;                 /* Light cocoa */
-    --muted-foreground: 25 20% 35%;      /* Dusty brown */
+    --muted: 30 25% 90%; /* Light cocoa */
+    --muted-foreground: 25 20% 35%; /* Dusty brown */
 
-    --accent: 35 50% 60%;                /* Golden ochre */
-    --accent-foreground: 25 25% 20%;     /* Earth brown */
+    --accent: 35 50% 60%; /* Golden ochre */
+    --accent-foreground: 25 25% 20%; /* Earth brown */
 
-    --destructive: 0 65% 50%;            /* Soft red clay */
+    --destructive: 0 65% 50%; /* Soft red clay */
     --destructive-foreground: 42 100% 95%;
 
-    --border: 30 20% 80%;                /* Faint tan */
+    --success: 140 40% 40%; /* Balanced forest green for light mode */
+    --success-foreground: 42 100% 95%; /* Light cream text on green */
+
+    --border: 30 20% 80%; /* Faint tan */
     --input: 30 20% 85%;
     --ring: 25 40% 30%;
 
@@ -38,37 +41,38 @@
 
   .dark {
     /* Dark Mode */
-    --background: 30 20% 12%;            /* Deeper mocha base */
-    --foreground: 42 40% 88%;            /* Soft beige for body text */
-  
+    --background: 30 20% 12%; /* Deeper mocha base */
+    --foreground: 42 40% 88%; /* Soft beige for body text */
+
     --card: 30 20% 14%;
     --card-foreground: 42 40% 88%;
-  
+
     --popover: 30 20% 14%;
     --popover-foreground: 42 40% 88%;
-  
-    --primary: 25 35% 55%;               /* Warm cedarwood, readable as text */
-    --primary-foreground: 42 100% 95%;   /* Creamy highlight for contrast */
-  
-    --secondary: 35 20% 25%;             /* Muted bark */
+
+    --primary: 25 35% 55%; /* Warm cedarwood, readable as text */
+    --primary-foreground: 42 100% 95%; /* Creamy highlight for contrast */
+
+    --secondary: 35 20% 25%; /* Muted bark */
     --secondary-foreground: 42 40% 88%;
-  
-    --muted: 30 15% 22%;                 /* Cocoa dust background */
-    --muted-foreground: 42 30% 70%;      /* Soft gray-brown for less important text */
-  
-    --accent: 35 50% 55%;                /* Golden terracotta — strong but not neon */
-    --accent-foreground: 42 100% 95%;    /* Light highlight on accent buttons/text */
-  
-    --destructive: 0 70% 45%;            /* Slightly brighter clay red for clarity */
+
+    --muted: 30 15% 22%; /* Cocoa dust background */
+    --muted-foreground: 42 30% 70%; /* Soft gray-brown for less important text */
+
+    --accent: 35 50% 55%; /* Golden terracotta — strong but not neon */
+    --accent-foreground: 42 100% 95%; /* Light highlight on accent buttons/text */
+
+    --destructive: 0 70% 45%; /* Slightly brighter clay red for clarity */
     --destructive-foreground: 42 100% 95%;
-  
-    --border: 30 15% 25%;                /* Subtle outline for cards/sections */
+    --success: 140 30% 60%; /* Brighter but not neon green in dark */
+    --success-foreground: 30 15% 10%;
+    --border: 30 15% 25%; /* Subtle outline for cards/sections */
     --input: 30 15% 20%;
-    --ring: 35 40% 65%;                  /* Accent ring for focus outline */
-  
+    --ring: 35 40% 65%; /* Accent ring for focus outline */
+
     --radius: 0.5rem;
   }
-  
+
   * {
     @apply border-border;
   }
