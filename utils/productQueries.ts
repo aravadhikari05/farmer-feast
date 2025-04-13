@@ -1,21 +1,12 @@
-import { NextApiRequest, NextApiResponse } from 'next';
 import { createClient } from '@supabase/supabase-js';
-import dotenv from 'dotenv';
-dotenv.config({path: '.env.local'});
 
 // Supabase client
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { name } = req.query;
-
-  if (!name || typeof name !== 'string') {
-    return res.status(400).json({ error: 'Missing or invalid product name' });
-  }
-
+export async function getProductsByName(name: string) {
   // Query the view filtered by product name
   const { data, error } = await supabase
     .from("product_farmers_markets")
@@ -23,14 +14,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     .ilike("product", name);
 
   if (error) {
-    console.error('Query error:', error);
-    return res.status(500).json({ error: error.message });
+    throw new Error(error.message);
   }
 
   if (!data || data.length === 0) {
-    return res.status(404).json({ 
-      error: `No results found for product: ${name}` 
-    });
+    return { product: name, markets: [] };
   }
 
   // Group results by market
@@ -46,8 +34,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }, {})
   );
 
-  res.status(200).json({
+  return {
     product: name,
     markets: groupedByMarket
-  });
+  };
 }

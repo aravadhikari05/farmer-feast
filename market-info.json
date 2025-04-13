@@ -1,0 +1,59 @@
+{
+  "markets": [
+    {
+      "name": "Downtown",
+      "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Downtown1.jpg",
+      "location": "Cedar St & Lincoln St, Downtown Santa Cruz",
+      "time": "Wednesday, 1:00 PM - 5:00 PM",
+      "months": "Year-round",
+      "features": [
+        "EBT/SNAP", "Market Match", "To-Go Artisanal Meals"
+      ],
+      "about": "The Downtown Santa Cruz Market runs year-round on Wednesdays, 1-5pm. Our largest and oldest market, it is situated in the heart of Downtown Santa Cruz, one block off of Pacific Avenue. Established in 1990, many of the farms that sell here were and remain pillars of the organic and ecological farming movement. This is the place to eat with the seasons! The variety of fruits, vegetables, flowers, pastured meats and other products is swoon worthy. The Downtown Market also spotlights a large variety of up-and-coming, unique cultural food businesses. This weekly spot may serve up the most diverse selection of ethnic and cultural foods in the county including naan and curry, Japanese fermented misos, Eritrean dishes, El Salvadorean pupusas, traditional Italian cookies, veggie-heavy Oaxacan dishes and long-ferment fresh breads and pastries. Shopping at the Wednesday market is a wonderful way to support regional responsible farms and small local businesses. Fill your grocery bags! Then sit down for a delightful meal and rest your weary arms."
+    },
+    {
+      "name": "Scotts Valley",
+      "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/ScottsValley1.jpg",
+      "location": "5060 Scotts Valley Drive, Boys & Girls Club Parking Lot",
+      "time": "Saturday, 9:00AM - 1:00PM",
+      "months": "May - November",
+      "features": [
+        "EBT/SNAP", "Market Match", "Live Music", "Delicious Meals"
+      ],
+      "about": "The Scotts Valley Farmers’ Market returns to the Joe and Linda Alberti Clubhouse/SV Boys and Girls Club in 2025, running Saturdays 9a-1p. Here we go! On May 3rd, opening day, the Penny Ice Creamery serves FREE mini-scoops from 11a-1p! Established in 2009 with the City of Scotts Valley, this market has become a seasonal treasure to the local community and to those visiting the area looking for a place to slow down and unwind. Here, every Saturday 9am-1pm, from late spring through the fall, a circle of regional farms, local food businesses and other makers set up their stands to offer shoppers and diners an array of delicious edibles. The market is a resource for nutritious food and agricultural education, providing a gathering place for families, friends and neighbors. Whether your a weekly shopper or just passing through, find what you’re looking for amidst the robust selection of organic vegetables, fruits, herbs, pasture-raised chicken and duck eggs, flowers, artisanal meats, breads, seafood, pastries, espresso bar and ready-to-eat cuisine."
+    },
+    {
+      "name": "Live Oak",
+      "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/LiveOak1.jpg",
+      "location": "15th & Eastcliff Dr",
+      "time": "Sunday, 9:00 AM - 1:00 PM",
+      "months": "Year-round",
+      "features": [
+        "EBT/SNAP", "Delicious Meals", "Music series"
+      ],
+      "about": "Started in 2000, this neighborhood market has grown to be a weekly event that is loved and depended on by the communities of Live Oak, Pleasure Point and Capitola. Here the atmosphere is bumping with families, cyclists, beach goers, locals, visitors, the young and the old. Shoppers find an excellent selection of organic produce from regional farms. The tables are stacked high with tree-ripened fruits, greens, fresh bread, pastries, nuts and legumes, sustainable seafood, pasture-raised organic meats and seasonal flowers. Many visitors spend hours at the market, filling their bags with berries, chicories and bagels – then moving onto a unique meal from one of the accomplished cooks that sell at the market. Sunday brunch offerings include traditional Michoacan Mexican dishes, exceptional focaccia breakfast sandwiches from Melrose, savory and sweet crepes, pupusas and farm-driven meals that spotlight the harvest in clean, creative and bright arrangements. Watsonville-based Hidden Fortress Coffee provides that hot, comforting cup of goodness that brings us back to the simple pleasures of life. This is your Sunday destination."
+    },
+    {
+      "name": "Westside",
+      "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Westside1.jpg",
+      "location": "Mission St. Ext. and Western Dr.",
+      "time": "Saturday, 9:00AM - 1:00PM",
+      "months": "Year-round",
+      "features": [
+        "EBT/SNAP", "Market Match", "Music series", "Delicious Meals"
+      ],
+      "about": "The Westside Farmers’ Market takes place every Saturday, year round at the corner of Hwy 1 and Western Drive. Here we serve the communities of the west end of Santa Cruz including Bonny Doon, the North Coast and the University of California,  Santa Cruz campus. Sitting on the northern edge of Santa Cruz’s greenbelt this market is a great launching location for a day outdoors at Natural Bridges beach, Wilder Ranch or any adventure spot up the coast. It is also just a hop, skip and a jump, or bike ride, from Downtown. A community hub for over 15 years, the Westside Market showcases a great selection of 100% certified organic produce, artisan foods, body products, tinctures, sustainable seafood, pasture-raised meats, flowers and eggs along with cook-to-order cultural meals, live local music and a full espresso bar operated by Foolhardy Coffee. With an abundance of free parking and accessibility on its side, this market makes for a convenient and celebratory Saturday morning outing any time of the year."
+    },
+    {
+      "name": "Felton",
+      "image_url": "https://santacruzfarmersmarket.org/wp-content/uploads/2012/06/Felton-banner.jpg",
+      "location": "120 Russell Ave, Felton",
+      "time": "Tuesdays, 1:30 PM - 5:30 PM",
+      "months": "May - October",
+      "features": [
+        "EBT/SNAP", "Market Match", "Live Music", "Delicious Meals"
+      ],
+      "about": "The Felton Farmers’ Market is a treasured weekly gathering place – started in 1987 it is the second longest running market in Santa Cruz County. SCCFM took over operations in 2009 and our team has developed deep ties to the community. Every Tuesday a quality collection of regional farms and food businesses throw up their tents to sell a colorful array of fresh fruits and vegetables, meats, eggs, artisanal bread, seafood and other staple foods. Connecting residents directly with local farms, the Felton Market is an essential part of the regional food system as well as a resource for nutritious organic foods and basic agricultural education. Farms include Watsonville-based Mora Family Farm with chicken, duck and quail eggs, apples, preserves and peppers. Centennial family farm Casalegno brings their heritage garlic, the most tender fresh beans and beautiful summer squash, heirloom tomatoes and early variety pears. Other beloved farms include Rodoni, Live Earth, Happy Boy, Kashiwase, Stackhouse, JCG, Pacific Rare Plants and Schletewitz Farm. New this year, Luna Dorada brings flowers, strawberries, greens and heat loving crops come peak summer. H&H Fresh Fish brings sustainable catch from the Bay. Eat Scrumptious Fish and Chips, likely some of the best you’ll try. Standard favorites include RoliRoti Rotisserie chicken and potatoes, knife sharpening with True Edge, the Penny Ice Creamery and Beckmann’s and Companion bakeries. This seasonal market is a jewel for the communities living in the San Lorenzo Valley and is located near the heart of downtown Felton on Hwy 9. Known for its family-centered culture and celebratory ambiance it belongs on your weekly calendar."
+    }
+  ]
+}

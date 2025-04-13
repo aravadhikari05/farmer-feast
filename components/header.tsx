@@ -1,74 +1,153 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ThemeSwitcher } from "./theme-switcher";
 
 export default function Header() {
-  const [headerVisible, setHeaderVisible] = useState(true);
-
-  const lastScrollPosition = useRef(0);
-  const accumulatedDelta = useRef(0);
-  const scrollDirectionRef = useRef<"up" | "down" | null>(null);
-
-  const handleScrollPositionChange = (position: number) => {
-    const delta = position - lastScrollPosition.current;
-    const newDirection = delta > 0 ? "down" : delta < 0 ? "up" : null;
-
-    if (newDirection !== scrollDirectionRef.current) {
-      accumulatedDelta.current = 0;
-      scrollDirectionRef.current = newDirection;
-    }
-
-    accumulatedDelta.current += Math.abs(delta);
-
-    if (position === 0) {
-      setHeaderVisible(true);
-      accumulatedDelta.current = 0;
-    } else if (
-      scrollDirectionRef.current === "up" &&
-      accumulatedDelta.current > 64
-    ) {
-      setHeaderVisible(true);
-      accumulatedDelta.current = 0;
-    } else if (
-      scrollDirectionRef.current === "down" &&
-      accumulatedDelta.current > 64 &&
-      position > 0
-    ) {
-      setHeaderVisible(false);
-      accumulatedDelta.current = 0;
-    }
-
-    lastScrollPosition.current = position;
-  };
+  const pathname = usePathname();
+  const isActive = (path: string) => pathname === path;
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      const scrollY = window.scrollY;
-      handleScrollPositionChange(scrollY);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
     };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav
-      className={`fixed top-0 z-50 w-full h-16 bg-background border-b border-b-foreground/10 transition-transform duration-300 ${
-        headerVisible ? "translate-y-0" : "-translate-y-full"
+      className={`fixed top-0 z-50 w-full h-16 backdrop-blur transition-colors duration-200 ${
+        scrolled ? "bg-background/90 shadow-md" : "bg-transparent shadow-none"
       }`}
     >
-      <div className="w-full h-full max-w-5xl mx-auto flex items-center justify-between px-4 text-sm">
-        <Link href="/" className="flex items-center gap-3">
-          <img src="/favicon.ico" alt="Logo" className="w-10 h-10" />
-          <span className="font-bold text-lg transition-all duration-200 hover:opacity-80">
+      <div
+        className={`h-full mx-auto flex items-center justify-between transition-all duration-200 ease-in-out ${
+          scrolled ? "max-w-6xl px-4" : "max-w-7xl px-6"
+        }`}
+      >
+        {/* Logo */}
+        <div className="flex items-center gap-2 transition-all duration-200 ease-in-out">
+          <img
+            src="/favicon.ico"
+            alt="Logo"
+            className="transition-all duration-200 ease-in-out w-7 h-7"
+          />
+          <span
+            className={`font-bold text-lg tracking-tight whitespace-nowrap overflow-hidden transition-all duration-200 ease-in-out transform ${
+              scrolled
+                ? "opacity-0 max-w-0 pointer-events-none"
+                : "opacity-100 max-w-xs"
+            }`}
+          >
             Farmer Feast
           </span>
-        </Link>
+        </div>
 
-        <ThemeSwitcher />
+        {/* Nav links (desktop only) */}
+        <div className="hidden md:flex items-center gap-6 text-sm">
+          <Link
+            href="/"
+            className={`px-3 py-1.5 rounded-full font-medium transition-colors duration-200 ${
+              isActive("/")
+                ? "selected-nav"
+                : "hover:bg-muted text-muted-foreground"
+            }`}
+          >
+            Get Started
+          </Link>
+          <Link
+            href="/search"
+            className={`px-3 py-1.5 rounded-full font-medium transition-colors duration-200 ${
+              isActive("/search")
+                ? "selected-nav"
+                : "hover:bg-muted text-muted-foreground"
+            }`}
+          >
+            RecipeSearch
+          </Link>
+          <Link
+            href="/markets"
+            className={`px-3 py-1.5 rounded-full font-medium transition-colors duration-200 ${
+              isActive("/markets")
+                ? "selected-nav"
+                : "hover:bg-muted text-muted-foreground"
+            }`}
+          >
+            Markets
+          </Link>
+        </div>
+
+        {/* Right side: Auth + Theme + Mobile menu */}
+        <div className="flex items-center gap-4">
+          {/* Desktop auth */}
+          <div className="hidden md:flex items-center gap-4">
+            {/* {            <Link
+              href="/login"
+              className="text-muted-foreground text-sm hover:opacity-80 transition"
+            >
+              Login
+            </Link>
+            <Link
+              href="/signup"
+              className="text-black font-medium text-sm px-4 py-1.5 rounded-full bg-yellow-400 shadow-yellow-500/30 shadow-lg hover:brightness-105 transition"
+            >
+              Sign up
+            </Link>} */}
+          </div>
+
+          <ThemeSwitcher />
+
+          {/* Mobile menu toggle */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            <div className="space-y-1">
+              <div className="w-5 h-0.5 bg-white" />
+              <div className="w-4 h-0.5 bg-white" />
+            </div>
+          </button>
+        </div>
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="md:hidden px-6 pb-4 pt-2 flex flex-col gap-2 bg-background shadow-md transition-all duration-200 ease-in-out">
+          <Link
+            href="/"
+            className="text-sm"
+            onClick={() => setMobileOpen(false)}
+          >
+            Get Started
+          </Link>
+          <Link
+            href="/search"
+            className="text-sm"
+            onClick={() => setMobileOpen(false)}
+          >
+            RecipeSearch
+          </Link>
+          {/* {        <Link href="/markets" className="text-sm" onClick={() => setMobileOpen(false)}>
+          Markets
+        </Link>
+        <Link href="/login" className="text-sm" onClick={() => setMobileOpen(false)}>
+          Login
+        </Link>
+        <Link
+          href="/signup"
+          className="text-sm font-medium bg-yellow-400 text-black px-4 py-2 rounded-full w-fit"
+          onClick={() => setMobileOpen(false)}
+        >
+          Sign up
+        </Link>} */}
+        </div>
+      )}
     </nav>
   );
 }

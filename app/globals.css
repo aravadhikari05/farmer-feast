@@ -2,68 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-  
+  :root {
+    /* Light Mode */
+    --background: 42 35% 96%;            /* Soft parchment */
+    --foreground: 25 25% 20%;            /* Warm coffee text */
 
+    --card: 42 35% 96%;
+    --card-foreground: 25 25% 20%;
 
+    --popover: 42 35% 96%;
+    --popover-foreground: 25 25% 20%;
 
-  :root  {
-    --background: 43 50% 95%;
-    --foreground: 43 5% 10%;
-    --card: 43 50% 90%;
-    --card-foreground: 43 5% 15%;
-    --popover: 43 50% 95%;
-    --popover-foreground: 43 95% 10%;
-    --primary: 43 65% 84%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 43 30% 70%;
-    --secondary-foreground: 0 0% 0%;
-    --muted: 5 30% 85%;
-    --muted-foreground: 43 5% 40%;
-    --accent: 5 30% 80%;
-    --accent-foreground: 43 5% 15%;
-    --destructive: 0 50% 50%;
-    --destructive-foreground: 43 5% 90%;
-    --border: 43 30% 51%;
-    --input: 43 30% 50%;
-    --ring: 43 65% 84%;
+    --primary: 25 45% 35%;               /* Deep cedarwood brown */
+    --primary-foreground: 42 100% 95%;   /* Creamy highlight */
+
+    --secondary: 35 30% 85%;             /* Gentle sand tone */
+    --secondary-foreground: 25 25% 25%;  /* Balanced contrast */
+
+    --muted: 30 25% 90%;                 /* Light cocoa */
+    --muted-foreground: 25 20% 35%;      /* Dusty brown */
+
+    --accent: 35 50% 60%;                /* Golden ochre */
+    --accent-foreground: 25 25% 20%;     /* Earth brown */
+
+    --destructive: 0 65% 50%;            /* Soft red clay */
+    --destructive-foreground: 42 100% 95%;
+
+    --border: 30 20% 80%;                /* Faint tan */
+    --input: 30 20% 85%;
+    --ring: 25 40% 30%;
+
     --radius: 0.5rem;
   }
-  .dark  {
-    --background: 43 50% 10%;
-    --foreground: 43 5% 90%;
-    --card: 43 50% 10%;
-    --card-foreground: 43 5% 90%;
-    --popover: 43 50% 5%;
-    --popover-foreground: 43 5% 90%;
-    --primary: 43 65% 84%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 43 30% 20%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 5 30% 25%;
-    --muted-foreground: 43 5% 60%;
-    --accent: 5 30% 25%;
-    --accent-foreground: 43 5% 90%;
-    --destructive: 0 50% 50%;
-    --destructive-foreground: 43 5% 90%;
-    --border: 43 30% 50%;
-    --input: 43 30% 50%;
-    --ring: 43 65% 84%;
-    --radius: 0.5rem;
+
+  .dark {
+    /* Dark Mode */
+    --background: 30 20% 16%;            /* Rich dark mocha */
+    --foreground: 42 40% 85%;            /* Soft beige */
+
+    --card: 30 20% 16%;
+    --card-foreground: 42 40% 85%;
+
+    --popover: 30 20% 16%;
+    --popover-foreground: 42 40% 85%;
+
+    --primary: 20 35% 30%;               /* Burnt espresso brown */
+    --primary-foreground: 42 100% 95%;
+
+    --secondary: 35 20% 25%;             /* Bark brown */
+    --secondary-foreground: 42 40% 85%;
+
+    --muted: 30 15% 22%;                 /* Cocoa dust */
+    --muted-foreground: 42 30% 75%;
+
+    --accent: 30 50% 50%;                /* Burnt terracotta */
+    --accent-foreground: 42 100% 95%;
+
+    --destructive: 0 60% 40%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 30 15% 30%;
+    --input: 30 15% 25%;
+    --ring: 35 40% 60%;
   }
-  
-  
-  
 
-}
-
-
-@layer base {
   * {
     @apply border-border;
+  }
+
+  @layer components {
+    .selected-nav {
+      @apply bg-muted font-semibold text-primary dark:text-foreground;
+    }
   }
   body {
     @apply bg-background text-foreground;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
 }
