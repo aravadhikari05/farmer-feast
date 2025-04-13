@@ -9,11 +9,8 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { MapPin, Info } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import FarmersPopup from "./ui/farmersPopup";
 import { getFarmerDetails } from "@/utils/supabase/client";
-
 
 type Props = {
   name: string;
@@ -67,9 +64,20 @@ export default function MarketCard({
     }
   }, [location, userLocation]);
 
-  // Make sure allIngredients is an array before using it
+  const handleOpenFarmersDialog = async () => {
+    setIsLoading(true);
+    try {
+      const details = await getFarmerDetails(farmers);
+      setFarmerDetails(details);
+      setIsFarmersDialogOpen(true);
+    } catch (error) {
+      console.error("Failed to fetch farmer details:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const safeIngredients = Array.isArray(allIngredients) ? allIngredients : [];
-  
   const marketIngredients = safeIngredients.filter(
     (ingredient) => availability[ingredient.toLowerCase()]
   );
@@ -91,26 +99,6 @@ export default function MarketCard({
   });
 
   return (
-    <div className="rounded-2xl border border-muted bg-card p-6 shadow-md hover:shadow-lg transition">
-      {/* Market Title */}
-      <div className="text-xl font-semibold text-primary mb-1">{name}</div>
-  const handleOpenFarmersDialog = async () => {
-    setIsLoading(true);
-    try {
-      // Pass the farmers array to getFarmerDetails
-      const details = await getFarmerDetails(farmers);
-      setFarmerDetails(details);
-      
-      // Open the dialog after data is loaded
-      setIsFarmersDialogOpen(true);
-    } catch (error) {
-      console.error("Failed to fetch farmer details:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  return (
     <div className="border border-muted rounded-xl bg-card p-4 shadow-sm">
       {/* Market Header */}
       <div className="flex items-center justify-between text-primary font-semibold text-base">
@@ -118,11 +106,11 @@ export default function MarketCard({
           <MapPin className="w-4 h-4" />
           {name}
         </div>
-        
+
         <div className="flex gap-2">
-          <Button 
-            variant="outline" 
-            size="sm" 
+          <Button
+            variant="outline"
+            size="sm"
             className="h-7 px-3 text-xs"
             onClick={handleOpenFarmersDialog}
           >
@@ -167,7 +155,6 @@ export default function MarketCard({
               {safeIngredients.length})
             </p>
 
-            {/* Sort Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" size="sm" className="gap-1 text-sm">
