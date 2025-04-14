@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Clock, CalendarDays, MapPin, ArrowUpDown, Check } from "lucide-react";
+import { Clock, CalendarDays, MapPin, ArrowUpDown, Check, Car, CarFrontIcon } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -9,8 +9,9 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import FarmersPopup from "./features/farmers-popup";
+import FarmersPopup from "@/components/features/farmers-popup";
 import { getFarmerDetails } from "@/utils/supabase/client";
+import { get } from "http";
 
 type Props = {
   name: string;
@@ -37,6 +38,7 @@ async function getTravelTime(
   });
 
   const data = await res.json();
+  
   return data.travelTime;
 }
 
@@ -60,7 +62,10 @@ export default function MarketCard({
 
   useEffect(() => {
     if (location) {
-      getTravelTime(location, userLocation).then(setTravelTime);
+      //console.log(getTravelTime(location, userLocation));
+      getTravelTime(location, userLocation).then((rawTime) => {
+        setTravelTime(rawTime.replace(/\bmins\b/, "min"));
+      });
     }
   }, [location, userLocation]);
 
@@ -137,7 +142,8 @@ export default function MarketCard({
         )}
         {travelTime && (
           <div className="flex items-center gap-2">
-            <span className="text-muted-foreground">🚗 {travelTime} drive</span>
+            <Car className="w-4 h-4" />
+            <span>{travelTime} drive</span>
           </div>
         )}
       </div>

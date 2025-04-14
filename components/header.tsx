@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ThemeSwitcher } from "./theme-switcher";
+import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { DM_Serif_Display, Merriweather, Quicksand, Bitter, Cabin } from 'next/font/google';
 
 export const dmSerif = DM_Serif_Display({

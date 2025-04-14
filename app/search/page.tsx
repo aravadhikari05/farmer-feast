@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import { Search, ArrowRight, Check, ArrowUpDown } from "lucide-react";
 import { motion } from "framer-motion";
-import FarmerCard from "@/components/market-search-card";
+import MarketCard from "@/components/ui/market-search-card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { getIngredientAvailability } from "@/utils/supabase/client";
 import { Notification } from "@/components/ui/notification";
-import { ShoppingTripPlanner } from "@/components/shopping-trip-planner";
+import { ShoppingTripPlanner } from "@/components/features/shopping-trip-planner";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -286,7 +286,7 @@ export default function SearchPage() {
         (ingredient) => !userHasIngredients[ingredient]
       );
       setUnownedIngredients(ingredientsToCheck);
-      console.log(ingredientsToCheck);
+      //console.log(ingredientsToCheck);
 
       const results = await getIngredientAvailability(
         ingredientsToCheck.map((ingredient) => ingredient.toLowerCase())
@@ -590,7 +590,7 @@ export default function SearchPage() {
                         return 0;
                       })
                       .map((result, i) => (
-                        <FarmerCard
+                        <MarketCard
                           key={i}
                           name={result.market.name}
                           location={result.market.location}

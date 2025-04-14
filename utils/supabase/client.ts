@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import marketInfo from "../../scripts/market-info.json"; // adjust path as needed
+import marketInfo from "@/scripts/market-info.json"; // adjust path as needed
 
 const marketMetaMap = Object.fromEntries(
   marketInfo.markets.map((m) => [
