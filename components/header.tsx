@@ -152,13 +152,6 @@ export default function Header() {
           >
             Markets
           </Link>
-          <Link
-            href="/markets"
-            className="text-sm"
-            onClick={() => setMobileOpen(false)}
-          >
-            Markets
-          </Link>
           {/* Optional links can be uncommented if needed */}
 
           {/*
