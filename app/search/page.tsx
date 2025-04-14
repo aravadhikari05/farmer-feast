@@ -526,6 +526,7 @@ export default function SearchPage() {
                   <ShoppingTripPlanner
                     isOpen={shoppingTrip.isOpen}
                     markets={shoppingTrip.markets}
+                    userLocation={userLocation}
                     coverage={shoppingTrip.coverage}
                     total={shoppingTrip.total}
                     ingredientMap={shoppingTrip.ingredientMap}

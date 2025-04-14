@@ -8,15 +8,25 @@ import { Button } from "@/components/ui/button";
 type ShoppingTripProps = {
   isOpen: boolean;
   markets: any[];
+  userLocation?: string | null;
   coverage: number;
   total: number;
   ingredientMap: Record<string, string[]>;
   onToggle: () => void;
 };
 
+const openDirections = (origin: string | null | undefined, destination: string) => {
+  const origin_loc = origin ? `&origin=${encodeURIComponent(origin)}` : "";
+  const url = `https://www.google.com/maps/dir/?api=1${
+    origin_loc
+  }&destination=${encodeURIComponent(destination)}`;
+  window.open(url, '_blank');
+};
+
 export function ShoppingTripPlanner({
   isOpen,
   markets,
+  userLocation,
   coverage,
   total,
   ingredientMap,
@@ -90,7 +100,9 @@ export function ShoppingTripPlanner({
                         {market.location && (
                           <div className="flex items-start gap-2">
                             <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                            <div className="text-sm">{market.location}</div>
+                            <div onClick={(e) => { openDirections(userLocation, market.location); }} 
+                              className="cursor-pointer text-sm hover:underline">{market.location}
+                             </div>
                           </div>
                         )}
                         {market.hours && (
