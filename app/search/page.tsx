@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import { Search, ArrowRight, Check, ArrowUpDown } from "lucide-react";
 import { motion } from "framer-motion";
-import MarketCard from "@/components/ui/market-search-card";
+import MarketSearchCard from "@/components/ui/market-search-card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { getIngredientAvailability } from "@/utils/supabase/client";
 import { Notification } from "@/components/ui/notification";
 import { ShoppingTripPlanner } from "@/components/features/shopping-trip-planner";
+import { toast } from "sonner"
+
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -52,7 +54,7 @@ export default function SearchPage() {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [unownedIngredients, setUnownedIngredients] = useState<string[]>([]);
   const [markets, setMarkets] = useState<any[]>([]);
-  const [userLocation, setUserLocation] = useState<string | null>(null);
+  const [userLocation, setUserLocation] = useState<string | null>("loading");
   const [availabilityResults, setAvailabilityResults] = useState<any[]>([]);
   const [marketSort, setMarketSort] = useState<
     "mostIngredients" | "leastIngredients"
@@ -125,6 +127,27 @@ export default function SearchPage() {
       }
     );
   }, []);
+
+  useEffect(() => {
+    const toastDismissed = sessionStorage.getItem("toast-dismissed");
+    if (userLocation === null && !toastDismissed){
+      const timeout = setTimeout(() => {
+        const toastId = toast("Enable location access for directions", {
+          description: "Allows us to route you to nearby markets",
+          duration: Infinity,
+          action: {
+            label: "Dismiss",
+            onClick: () => {
+              toast.dismiss(toastId);
+              sessionStorage.setItem("toast-dismissed", "true")
+            },
+          },
+        });
+      }, 100);
+  }
+  }, [userLocation]);
+
+
 
   async function handleSearch(e: React.FormEvent) {
     e.preventDefault();
@@ -590,13 +613,13 @@ export default function SearchPage() {
                         return 0;
                       })
                       .map((result, i) => (
-                        <MarketCard
+                        <MarketSearchCard
                           key={i}
                           name={result.market.name}
                           location={result.market.location}
                           hours={result.market.time}
                           seasonInfo={result.market.months}
-                          userLocation={userLocation}
+                          userLocation={userLocation === "loading" ? null : userLocation}
                           availability={result.availability}
                           allIngredients={unownedIngredients}
                           farmers={result.farmers}

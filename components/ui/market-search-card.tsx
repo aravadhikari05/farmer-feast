@@ -11,7 +11,6 @@ import {
 import { Button } from "@/components/ui/button";
 import FarmersPopup from "@/components/features/farmers-popup";
 import { getFarmerDetails } from "@/utils/supabase/client";
-import { get } from "http";
 
 type Props = {
   name: string;
@@ -28,6 +27,7 @@ async function getTravelTime(
   farmerLocation: string,
   userLocation?: string | null
 ) {
+  if (!userLocation) return null;
   const res = await fetch("/api/get-distance", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -42,7 +42,16 @@ async function getTravelTime(
   return data.travelTime;
 }
 
-export default function MarketCard({
+const openDirections = (origin: string | null | undefined, destination: string) => {
+  const origin_loc = origin ? `&origin=${encodeURIComponent(origin)}` : "";
+  const url = `https://www.google.com/maps/dir/?api=1${
+    origin_loc
+  }&destination=${encodeURIComponent(destination)}`;
+  window.open(url, '_blank');
+};
+
+
+export default function MarketSearchCard({
   name,
   location,
   hours,
@@ -64,7 +73,9 @@ export default function MarketCard({
     if (location) {
       //console.log(getTravelTime(location, userLocation));
       getTravelTime(location, userLocation).then((rawTime) => {
-        setTravelTime(rawTime.replace(/\bmins\b/, "min"));
+        if (rawTime){
+          setTravelTime(rawTime.replace(/\bmins\b/, "min"));
+        }
       });
     }
   }, [location, userLocation]);
@@ -125,7 +136,9 @@ export default function MarketCard({
         {location && (
           <div className="flex items-start gap-2">
             <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-            <div className="text-sm">{location}</div>
+            <div onClick={(e) => { openDirections(userLocation, location); }} 
+            className="cursor-pointer text-sm hover:underline">{location}
+            </div>
           </div>
         )}
         {hours && (

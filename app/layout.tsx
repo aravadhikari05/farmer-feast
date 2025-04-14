@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "@/components/ui/sonner"
 
 import "@/app/globals.css";
 import Header from "@/components/header";
@@ -49,6 +50,7 @@ export default function RootLayout({
               </footer>
             </div>
           </main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
